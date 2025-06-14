@@ -64,3 +64,23 @@ function init(){
 }
 
 init();
+
+var tl = gsap.timeline({
+    scrollTrigger:{
+        trigger:'.page1 h1',
+        scroller:'.main',
+        // markers:true,
+        start:"top 30%",
+        end:"top 0",
+        scrub:3
+    }
+})
+tl.to('.page1 h1', {
+    x:-100, 
+},"anim")
+tl.to('.page1 h2', {
+    x:100, 
+},"anim")
+tl.to('.page1 .slideshow', {
+    width:"90%"
+},"anim")
