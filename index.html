@@ -4,13 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Client's website description for SEO">
-    <title>Client Website</title>
+    <title>E Square</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <!-- Preload fonts if using custom ones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
+    <div class="main">
+        <div class="page1">
+            <div id="nav">
+                <img src="data:image/png;base64,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" alt="">
+                <div id="nav-part2">
+                    <h4>Home</h4>
+                    <h4>About</h4>
+                    <h4>Services</h4>
+                    <h4>Contact</h4>
+                </div>
+                <div id="nav-part3">
+                    <div id="circle"></div>
+                </div>
+            </div>
+            <h1>E Square</h1>
+            <h2>Solutions</h2>
+            <div class="slideshow">
+                <div class="slide active">
+                    <img src="images/test.jpg" alt="Architecture">
+                    <div class="slide-text">Glass</div>
+                </div>
+                
+                <div class="slide">
+                    <img src="images/dj.png" alt="Design">
+                    <div class="slide-text">Aluminum</div>
+                </div>
+
+                <div class="slide">
+                    <img src="images/reco.png" alt="Minimal">
+                    <div class="slide-text">Sample</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
     <!-- Content -->
+     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="js/main.js" defer></script>
 </body>
 </html>

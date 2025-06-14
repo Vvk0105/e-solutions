@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy', sans-serif;
+    color: #fff;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.main{
+    background-color: #0F0D0D;
+}
+
+.page1{
+    min-height: 100vh;
+    width: 100%;
+}
+
+#nav{
+    height: 60px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+#nav img{
+    height: 30px;
+}
+
+#nav-part2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* background-color: rgb(98, 98, 103);
+    padding: 7px 15px;
+    border-radius: 30px; */
+}
+
+#nav #circle{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+#nav h4{
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#nav h4:nth-child(1){
+    /* color: rgb(0, 0, 255); */
+    border-bottom: 1.5px solid #fff;
+}
+
+.page1 h1{
+    font-size: 7vw;
+    font-weight: 300;
+    font-family: PP mori;
+    margin-top: 10vw;
+    margin-left: 25vw;
+}
+
+
+.page1 h2{
+    font-size: 7vw;
+    font-weight: 300;
+    font-family: PP mori;
+    margin-left: 45vw;
+}
+
+.slideshow {
+    /* width: 45vw; */
+    height: 40vw;
+    position: relative;
+    overflow: hidden;
+    /* border: 1px solid #eee; */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: flex-end;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.slide-text {
+    position: relative;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* bottom: 30px; */
+}
+
+.page1 .slideshow{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10vw;
+}
