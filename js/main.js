@@ -84,3 +84,18 @@ tl.to('.page1 h2', {
 tl.to('.page1 .slideshow', {
     width:"90%"
 },"anim")
+
+var t2 = gsap.timeline({
+    scrollTrigger:{
+        trigger:'.page1 h1',
+        scroller:'.main',
+        markers:true,
+        start:"top -80%",
+        end:"top -80%",
+        scrub:3
+    }
+})
+
+t2.to('.main',{
+    backgroundColor:"#fff"
+})
