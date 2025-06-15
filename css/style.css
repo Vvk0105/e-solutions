@@ -11,6 +11,17 @@ html, body{
     width: 100%;
 }
 
+/* .cursor{
+    height: 12px;
+    width: 12px;
+    background-color: red;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 9;
+    mix-blend-mode: difference;
+    transition: left linear 0.1s top linear 0.1s;
+} */
+
 .main{
     background-color: #0F0D0D;
 }
@@ -215,7 +226,6 @@ html, body{
 .page3 {
     width: 100%;
     padding: 5rem 0;
-    background-color: #ffffff;
 }
 
 .page3-container {
@@ -292,8 +302,58 @@ html, body{
 }
 
 .page4{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    /* background-color: red; */
+    padding: 100px;
+    /* position: relative; */
 }
 
+.elem{
+    /* background-color: salmon; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.elem img{
+    position: absolute;
+    opacity: 0;
+    transition: all ease-out 0.5s;
+    transform: translateY(10%) rotate(2deg);
+}
+
+.elem img:nth-child(1){
+    left: 5%;
+}
+
+.elem img:nth-child(3){
+    right: 10%;
+}
+
+.text-div{
+    /* background-color: lightblue; */
+    height: 100px;
+    overflow: hidden;
+}
+
+.elem h2{
+    font-size: 6vw;
+    transition: all ease-out 0.4s;
+}
+
+.elem:hover h2{
+    transform: translateY(-100%);
+    color: #5b6fc7;
+}
+
+.elem:hover img{
+    opacity: 1;
+    transform: translateY(0%) rotate(0deg);
+}
+
+.page5{
+    min-height: 100vh;
+    width: 100%;
+    background-color: red;
+}
