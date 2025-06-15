@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gilroy', sans-serif;
+    font-family: PP mori;   
     color: #fff;
 }
 
@@ -65,17 +65,19 @@ html, body{
 .page1 h1{
     font-size: 7vw;
     font-weight: 300;
-    font-family: PP mori;
+    /* font-family: PP mori; */
     margin-top: 10vw;
-    margin-left: 25vw;
+    margin-left: 37vw;
 }
 
+.page1 h1 span{
+    color: red;
+}
 
 .page1 h2{
     font-size: 7vw;
     font-weight: 300;
-    font-family: PP mori;
-    margin-left: 45vw;
+    margin-left: 42vw;
 }
 
 .slideshow {
@@ -130,7 +132,7 @@ html, body{
 }
 
 .page2{
-    /* min-height: 150vh; */
+    /* min-height: 50vh; */
     width: 100%;
     padding: 5rem 0;
 }
@@ -268,3 +270,30 @@ html, body{
     color: black;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .page3-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .page3-left, 
+    .page3-right {
+        width: 100%;
+    }
+    
+    .page3-left h3 {
+        font-size: 2rem; 
+    }
+    
+    .page3-left p {
+        font-size: 1rem;
+    }
+}
+
+.page4{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+}
+
