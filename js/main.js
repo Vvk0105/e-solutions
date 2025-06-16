@@ -43,23 +43,36 @@ function init(){
     gsap.registerPlugin(ScrollTrigger);
 
     const locoScroll = new LocomotiveScroll({
-    el: document.querySelector(".main"),
-    smooth: true
+        el: document.querySelector(".main"),
+        smooth: true
     });
-    locoScroll.on("scroll", ScrollTrigger.update);
+    locoScroll.on("scroll", (args) => {
+        // Detect when we've scrolled to bottom
+        const scrollPosition = args.scroll.y;
+        const maxScroll = locoScroll.el.scrollHeight - locoScroll.el.clientHeight;
+        const footer = document.getElementById('footer');
+        
+        // Show footer when near bottom (last 20% of scroll)
+        if (scrollPosition > maxScroll * 0.8) {
+            footer.classList.add('footer-visible');
+        } else {
+            footer.classList.remove('footer-visible');
+        }
+        
+        ScrollTrigger.update();
+    });
 
     ScrollTrigger.scrollerProxy(".main", {
-    scrollTop(value) {
-        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-    },
-    getBoundingClientRect() {
-        return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-    },
-    pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+        scrollTop(value) {
+            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+            return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+        },
+        pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
     });
 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
     ScrollTrigger.refresh();
 }
 
@@ -72,6 +85,28 @@ main.addEventListener("mousemove", function(dets){
     crsr.style.top = dets.y + "px"
 })
 
+var tl4 = gsap.timeline()
+
+tl4.from("#loader h3", {
+    x: 40,
+    opacity: 0,
+    duration: 1,
+    // ease: "power4.out",
+    stagger: 0.1,
+})
+tl4.to("#loader h3", {
+    x: -40,
+    opacity: 0,
+    duration: 1,
+    // ease: "power4.out",
+    stagger: -0.1,
+})
+tl4.to("#loader", {
+    opacity:0,
+})
+tl4.to("#loader", {
+    display:"none"
+})
 
 var tl = gsap.timeline({
     scrollTrigger:{
@@ -122,3 +157,4 @@ var tl3 = gsap.timeline({
 tl3.to('.main',{
     backgroundColor:"#0F0D0D"
 })
+
