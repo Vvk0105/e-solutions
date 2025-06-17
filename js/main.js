@@ -118,11 +118,11 @@ tl4.to("#loader", {
 
 var tl = gsap.timeline({
     scrollTrigger:{
-        trigger:'.page1 h1',
+        trigger:'.page1 slideshow',
         scroller:'.main',
         // markers:true,
-        start:"top 30%",
-        end:"top 0",
+        start:"30% 20%",
+        end:"bottom 0%",
         scrub:3
     }
 })
@@ -133,16 +133,16 @@ tl.to('.page1 h2', {
     x:100, 
 },"anim")
 tl.to('.page1 .slideshow', {
-    width:"90%"
+    width:"60%"
 },"anim")
 
 var tl2 = gsap.timeline({
     scrollTrigger:{
-        trigger:'.page1 h1',
+        trigger:'.page2',
         scroller:'.main',
         // markers:true,
-        start:"top -85%",
-        end:"top -85%",
+        start:"top 55%",
+        end:"top 55%",
         scrub:3
     }
 })
@@ -153,11 +153,11 @@ tl2.to('.main',{
 
 var tl3 = gsap.timeline({
     scrollTrigger:{
-        trigger:'.page1 h1',
+        trigger:'.page4',
         scroller:'.main',
         // markers:true,
-        start:"top -235%",
-        end:"top -235%",
+        start:"top 70%",
+        end:"top 15%",
         scrub:3
     }
 })
