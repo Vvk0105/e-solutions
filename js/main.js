@@ -90,7 +90,7 @@ var tl4 = gsap.timeline()
 tl4.from("#loader h3", {
     x: 40,
     opacity: 0,
-    duration: 1,
+    duration: 1.4,
     // ease: "power4.out",
     stagger: 0.1,
 })
@@ -107,6 +107,14 @@ tl4.to("#loader", {
 tl4.to("#loader", {
     display:"none"
 })
+
+// gsap.from(".page1 h1,.page1 h2", {
+//     x: 10,
+//     rotate: 10,
+//     opacity: 0,
+//     delay: 2.5,
+//     duration: 0.7
+// })
 
 var tl = gsap.timeline({
     scrollTrigger:{
