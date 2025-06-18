@@ -1,19 +1,7 @@
 /* Regular */
 @font-face {
-  font-family: 'PP';
+  font-family: 'PP Mori';
   src: url('/fonts/PPMori-Regular.woff2') format('woff2');
-}
-
-/* SemiBold */
-@font-face {
-  font-family: 'PP Mori';
-  src: url('/fonts/PPMori-SemiBold.woff2') format('woff2');
-}
-
-/* SemiBold Italic */
-@font-face {
-  font-family: 'PP Mori';
-  src: url('/fonts/PPMori-SemiBoldItalic.woff2') format('woff2');
 }
 
 *{
@@ -268,7 +256,7 @@ html, body{
 .page2-right{
     flex: 1;
     background-color: #212848;
-    padding: 6vw 1vw;
+    padding: 6vw 1.5vw;
     border-radius: 25px;
     color: #fff;
     text-align: center;
@@ -338,7 +326,7 @@ html, body{
 .page3-left {
     flex: 1;
     background-color: #212848;
-    padding: 5vw 1vw;
+    padding: 5vw 1.5vw;
     border-radius: 25px;
     color: #fff;
     text-align: center;
@@ -401,10 +389,12 @@ html, body{
 .page4{
     min-height: 100vh;
     width: 100%;
-    padding: 100px;
+    padding: 50px 100px;
     position: relative;
-    /* border: 2px #fff solid; */
-    /* margin-bottom: 2vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
 }
 
 .elem{
@@ -416,6 +406,8 @@ html, body{
 }
 
 .elem img{
+    width: 200px;
+    height: auto;
     position: absolute;
     opacity: 0;
     transition: all ease-out 0.5s;
@@ -430,6 +422,7 @@ html, body{
 .elem:hover h2{
     transform: translateY(-100%);
     color: #5b6fc7;
+    cursor: pointer;
 }
 
 .elem:hover img{
@@ -448,7 +441,7 @@ html, body{
 
 .elem2 img:nth-child(1) {
     left: 3%;
-    top: 20%;
+    top: 10%;
 }
 
 .elem2 img:nth-child(3) {
