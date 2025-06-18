@@ -471,13 +471,13 @@ html, body{
 }
 
 #page5 {
-    height: 50vh;
+    height: 80vh;
     width: 100%;
 }
 
 #footer {
     position: fixed;
-    height: 5   0vh;
+    height: 80vh;
     width: 100%;
     background-color: #49537d;
     color: #fff;
