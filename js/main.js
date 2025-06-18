@@ -141,7 +141,7 @@ var tl2 = gsap.timeline({
         trigger:'.page2',
         scroller:'.main',
         // markers:true,
-        start:"top 55%",
+        start:"top 140%",
         end:"top 55%",
         scrub:3
     }
@@ -149,7 +149,9 @@ var tl2 = gsap.timeline({
 
 tl2.to('.main',{
     // backgroundColor:"#FAF9F6"
-    backgroundColor:"#D7D6D4"
+    // backgroundColor:"#D7D6D4"
+    backgroundColor:"#fff"
+
 })
 
 var tl3 = gsap.timeline({
