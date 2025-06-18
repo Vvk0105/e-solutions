@@ -2,27 +2,18 @@
 @font-face {
   font-family: 'PP';
   src: url('/fonts/PPMori-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
 }
 
 /* SemiBold */
 @font-face {
   font-family: 'PP Mori';
   src: url('/fonts/PPMori-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
 }
 
 /* SemiBold Italic */
 @font-face {
   font-family: 'PP Mori';
   src: url('/fonts/PPMori-SemiBoldItalic.woff2') format('woff2');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
 }
 
 *{
