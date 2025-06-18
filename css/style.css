@@ -223,7 +223,7 @@ html, body{
     position: relative;
     /* min-height: 50vh; */
     width: 100%;
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 .page2-container{
@@ -304,7 +304,7 @@ html, body{
 .page3 {
     position: relative;
     width: 100%;
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 .page3-container {
