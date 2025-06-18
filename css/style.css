@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'PP Mori';
+  src: url('PPMori-Regular.woff2') format('woff2'),
+       url('PPMori-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *{
     margin: 0;
     padding: 0;
