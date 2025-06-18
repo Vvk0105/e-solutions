@@ -186,7 +186,7 @@ html, body{
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     gap: 4rem;
 }
 
@@ -267,7 +267,7 @@ html, body{
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     gap: 4rem;
 }
 
@@ -470,7 +470,7 @@ html, body{
 }
 
 .footer-terms ul{
-    width: 100px;
+    width: 180px;
 }
 
 .footer-menu ul li, .footer-terms ul li {
