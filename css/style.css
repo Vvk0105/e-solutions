@@ -410,13 +410,13 @@ html, body{
     height: auto;
     position: absolute;
     opacity: 0;
-    transition: all ease-out 0.5s;
+    transition: all ease-out 0.3s;
     transform: translateY(10%) rotate(2deg);
 }
 
 .elem h2{
     font-size: 6vw;
-    transition: all ease-out 0.4s;
+    transition: all ease-out 0.3s;
 }
 
 .elem:hover h2{
@@ -482,13 +482,13 @@ html, body{
 }
 
 #page5 {
-    height: 80vh;
+    height: 60vh;
     width: 100%;
 }
 
 #footer {
     position: fixed;
-    height: 80vh;
+    height: 60vh;
     width: 100%;
     background-color: #49537d;
     color: #fff;
