@@ -406,7 +406,7 @@ html, body{
 }
 
 .elem img{
-    width: 200px;
+    width: min(200px, 20vw);
     height: auto;
     position: absolute;
     opacity: 0;
@@ -490,8 +490,8 @@ html, body{
     position: fixed;
     height: 60vh;
     width: 100%;
-    background-color: #49537d;
-    color: #fff;
+    background-color: #fff;
+    color: #111;
     z-index: 9;
     bottom: 0;
     align-items: center;
@@ -536,7 +536,7 @@ html, body{
 
 .footer-menu ul li a, .footer-terms ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #111;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 14px;
@@ -551,7 +551,7 @@ html, body{
     margin: 0;
     font-size: 14px;
     font-weight: 100;
-    color: #fff;
+    color: #111;
 }
 /* #footer h1 {
     font-size: 23vw;
