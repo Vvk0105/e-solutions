@@ -18,8 +18,11 @@ lazyloading();
 function page1slider(){
     document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.slide');
+            const background = document.querySelector('.page1-background');
             let currentSlide = 0;
             
+            background.style.backgroundImage = `url(${slides[0].querySelector('img').src})`;
+
             function showNextSlide() {
                 // Hide current slide
                 slides[currentSlide].classList.remove('active');
@@ -29,6 +32,8 @@ function page1slider(){
                 
                 // Show new slide
                 slides[currentSlide].classList.add('active');
+                const currentImg = slides[currentSlide].querySelector('img').src;
+                background.style.backgroundImage = `url(${currentImg})`;
             }
             
             // Change slide every second
@@ -154,18 +159,120 @@ tl2.to('.main',{
 
 })
 
-var tl3 = gsap.timeline({
-    scrollTrigger:{
-        trigger:'.page4',
-        scroller:'.main',
-        // markers:true,
-        start:"top 70%",
-        end:"top 70%",
-        scrub:3
+// var tl3 = gsap.timeline({
+//     scrollTrigger:{
+//         trigger:'.page4',
+//         scroller:'.main',
+//         // markers:true,
+//         start:"top 70%",
+//         end:"top 70%",
+//         scrub:3
+//     }
+// })
+
+// tl3.to('.main',{
+//     backgroundColor:"#0F0D0D"
+// })
+
+
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+document.querySelectorAll('.elem').forEach(elem => {
+  if (isTouchDevice) {
+    elem.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+  }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutUs = document.querySelector(".about-us");
+    const clickMe = document.querySelector(".click-me");
+
+    // Split text into spans
+    const splitText = (element) => {
+        const chars = element.textContent.split("");
+        element.innerHTML = "";
+        chars.forEach(char => {
+            const span = document.createElement("span");
+            span.textContent = char === " " ? "\u00A0" : char;
+            element.appendChild(span);
+        });
+    };
+
+    splitText(aboutUs);
+    splitText(clickMe);
+
+    // GSAP scroll animation (for About Us)
+    gsap.from(".about-us span", {
+        yPercent: 130,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 0.5,
+        ease: "back.out",
+        scrollTrigger: {
+            trigger: ".text-div",
+            scroller: ".main", // if using Locomotive Scroll
+            start: "top 80%",
+            toggleActions: "play none none none",
+            // markers: true
+        }
+    });
+
+    // Hover animation (with stagger in and out)
+    const textDiv = document.querySelector(".text-div");
+
+    textDiv.addEventListener("mouseenter", () => {
+        gsap.to(".about-us span", {
+            yPercent: -200,
+            opacity: 0,
+            stagger: 0.04,
+            duration: 0.4,
+            ease: "back.in"
+        });
+
+        gsap.to(".click-me span", {
+            yPercent: -100,
+            opacity: 1,
+            stagger: 0.04,
+            duration: 0.4,
+            ease: "back.out"
+        });
+
+        gsap.to(".about-us", { top: "-100%", duration: 0.6, ease: "power2.out" });
+        gsap.to(".click-me", { top: "20%", duration: 0.6, ease: "power2.out" });
+    });
+
+    textDiv.addEventListener("mouseleave", () => {
+        gsap.to(".about-us span", {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.04,
+            duration: 0.6,
+            ease: "ease.out"
+        });
+
+        gsap.to(".click-me span", {
+            yPercent: 0,
+            opacity: 0,
+            stagger: 0.04,
+            duration: 0.6,
+            ease: "back.in"
+        });
+
+        gsap.to(".about-us", { top: "0%", duration: 0.6, ease: "ease.in" });
+        gsap.to(".click-me", { top: "100%", duration: 0.6, ease: "ease.out" });
+    });
+
+    ScrollTrigger.create({
+    trigger: ".text-div",
+    scroller: ".main", // remove if not using locomotive scroll
+    start: "top 80%",
+    onEnter: () => {
+        document.querySelector(".text-div").classList.add("animate-line");
     }
-})
+    });
 
-tl3.to('.main',{
-    backgroundColor:"#0F0D0D"
-})
-
+    ScrollTrigger.refresh();
+});
