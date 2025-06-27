@@ -18,7 +18,7 @@ lazyloading();
 function page1slider(){
     document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.slide');
-            const background = document.querySelector('.page1-background');
+            // const background = document.querySelector('.page1-background');
             let currentSlide = 0;
             
             background.style.backgroundImage = `url(${slides[0].querySelector('img').src})`;
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "back.out",
         scrollTrigger: {
             trigger: ".text-div",
-            scroller: ".main", // if using Locomotive Scroll
+            scroller: ".main",
             start: "top 80%",
             toggleActions: "play none none none",
             // markers: true
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
             yPercent: -200,
             opacity: 0,
             stagger: 0.04,
-            duration: 0.4,
+            duration: 0.9,
             ease: "back.in"
         });
 
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
             yPercent: -100,
             opacity: 1,
             stagger: 0.04,
-            duration: 0.4,
+            duration: 0.9,
             ease: "back.out"
         });
 
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(".about-us span", {
             yPercent: 0,
             opacity: 1,
-            stagger: 0.04,
+            stagger: 0.05,
             duration: 0.6,
             ease: "ease.out"
         });
@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ScrollTrigger.create({
     trigger: ".text-div",
-    scroller: ".main", // remove if not using locomotive scroll
+    scroller: ".main",
     start: "top 80%",
     onEnter: () => {
         document.querySelector(".text-div").classList.add("animate-line");
@@ -276,3 +276,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ScrollTrigger.refresh();
 });
+
+gsap.registerPlugin(SplitText);
+split = SplitText.create(".offshoring", {
+    type: "words,lines",
+    
+})
+
+gsap.from(split.words, {
+    yPercent: 130,
+    opacity: 0,
+    stagger: {
+        amount: 0.2,
+    },
+    duration: 0.5,
+    ease: "ease.in",
+    scrollTrigger: {
+        trigger: ".page2-container",
+        scroller: ".main",
+        start: "top 65%",
+        end: "bottom 20%",
+        toggleActions: "play none none none",
+        // markers: true,
+        once: true
+    }
+})

@@ -1,19 +1,26 @@
 /* Regular */
 @font-face {
-  font-family: 'PP Mori';
-  src: url('/fonts/PPMori-Regular.woff2') format('woff2');
+    font-family: 'PP Mori';
+    src: url('/fonts/PPMori-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'PP Mori Light';
+    src: url('/fonts/PPMori-Extralight.woff2') format('woff2');
+    font-weight: 200; /* Helps browsers auto-select light weight */
 }
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: PP Mori;   
+    /* font-family: PP Mori;    */
     color: #fff;
 }
 
 html {
   font-size: 16px;
+  font-family: PP Mori;
 }
 
 html, body{
@@ -307,58 +314,49 @@ h1, h2, h3, h4 {
     /* min-height: 50vh; */
     width: 100%;
     padding: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .page2-container{
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: stretch;
-    gap: 4rem;
-}
-
-.page2-left{
-    flex: 2;
-}
-
-.page2-left img{
+    /* max-width: 1200px; */
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.page2-right{
-    flex: 1;
-    /* background-color: #212848; */
-    padding: 6vw 1.5vw;
-    border-radius: 25px;
+    padding: 2rem 6rem;
     text-align: center;
+    font-family: inherit;
+    
 }
 
-.page2-right h3{
-    font-size: 2vw;
+.page2-container div{
+    color: #000;
+}
+
+.page2-container h3{
+    font-size: 3rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #000;
 }
 
-.page2-right p{
-    font-size: 1.2rem;
-    font-weight: 200;
-    line-height: 1.6;
-    color: #555;
+.page2-container p{
+    font-size: min(3.306vw, 82.6666666667px);
+    letter-spacing: min(-.065vw, -1.24px);
+    line-height: min(4.653vw, 89.3333333333px);
+    word-spacing: min(-.065vw, -1.24px);
+    font-family: PP Mori Light;
+    font-weight: 500;
+    /* color: #555; */
+    color: #000;
     margin-bottom: 2rem;
     text-align: justify;
 }
 
-.page2-right button{
-    width: 100%;
+.page2-container button{
+    width: 10%;
     border-radius: 50px;
     border: none;
-    padding: 4px 0;
+    padding: 10px 0;
     color: black;
 }
 
@@ -485,6 +483,7 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column;
     border-bottom: 2px solid #111;
+    font-family: PP Mori Light;
 }
 
 .about-us,
