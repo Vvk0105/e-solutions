@@ -280,24 +280,50 @@ document.addEventListener("DOMContentLoaded", () => {
 gsap.registerPlugin(SplitText);
 split = SplitText.create(".offshoring", {
     type: "words,lines",
-    
-})
-
-gsap.from(split.words, {
-    yPercent: 130,
-    opacity: 0,
-    stagger: {
-        amount: 0.2,
-    },
-    duration: 0.5,
-    ease: "ease.in",
-    scrollTrigger: {
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 2,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
         trigger: ".page2-container",
         scroller: ".main",
         start: "top 65%",
         end: "bottom 20%",
         toggleActions: "play none none none",
-        // markers: true,
+        markers: true,
         once: true
     }
-})
+      });
+      return split;
+    }
+  });
+
+//   document.querySelector("button").addEventListener("click", (e) => {
+//     split.timeScale(0.2).play(0);
+//   });
+
+
+// gsap.from(split.words, {
+//     yPercent: 130,
+//     opacity: 0,
+//     stagger: {
+//         amount: 0.2,
+//     },
+//     duration: 0.5,
+//     ease: "ease.in",
+//     scrollTrigger: {
+//         trigger: ".page2-container",
+//         scroller: ".main",
+//         start: "top 65%",
+//         end: "bottom 20%",
+//         toggleActions: "play none none none",
+//         // markers: true,
+//         once: true
+//     }
+// })

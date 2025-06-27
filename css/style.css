@@ -340,7 +340,8 @@ h1, h2, h3, h4 {
 }
 
 .page2-container p{
-    font-size: min(3.306vw, 82.6666666667px);
+    /* font-size: min(3.206vw, 82.6666666667px); */
+    font-size: 3rem;
     letter-spacing: min(-.065vw, -1.24px);
     line-height: min(4.653vw, 89.3333333333px);
     word-spacing: min(-.065vw, -1.24px);
