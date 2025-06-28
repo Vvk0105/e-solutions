@@ -451,7 +451,7 @@ h1, h2, h3, h4 {
     text-align: justify;
 }
 
-.page3-container button{
+.page3-container a{
     width: 10%;
     border-radius: 50px;
     border: none;
@@ -752,3 +752,196 @@ h1, h2, h3, h4 {
     border-bottom-right-radius: 20px;
 
 } */
+
+/* Architectural Solutions Page Styles */
+.solutions-hero {
+    position: relative;
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('../images/solutions-hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.solutions-hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.solutions-hero h1 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+.solutions-hero p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 0.05em;
+}
+
+/* Categories Grid */
+.solutions-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+}
+
+.category-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-image img {
+    transform: scale(1.05);
+}
+
+.category-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.category-content h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.category-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 200;
+}
+
+.category-cta {
+    display: inline-block;
+    padding-bottom: 2px;
+    border-bottom: 1px solid white;
+    transition: all 0.3s ease;
+}
+
+.category-card:hover .category-cta {
+    padding-right: 1rem;
+}
+
+/* Subcategory Section */
+.subcategory-section {
+    padding: 5rem;
+    background-color: #f8f8f8;
+}
+
+.subcategory-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subcategory-header h2 {
+    font-size: 3rem;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.subcategory-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.subcategory-card {
+    background: white;
+    padding: 2rem;
+    text-decoration: none;
+    color: #111;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.subcategory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.subcategory-image {
+    height: 200px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.subcategory-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.subcategory-card:hover .subcategory-image img {
+    transform: scale(1.05);
+}
+
+.subcategory-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.subcategory-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.subcategory-card ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    color: #111;
+}
+
+.subcategory-card ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #555;
+}
