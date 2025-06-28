@@ -382,65 +382,81 @@ h1, h2, h3, h4 {
     }
 }
 
-.page3 {
+.full-width-img {
     position: relative;
     width: 100%;
-    padding: 3rem 0;
+    height: 90vh;
+    overflow: hidden;
 }
 
-.page3-container {
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 4rem;
-}
-
-.page3-left {
-    flex: 1;
-    /* background-color: #212848; */
-    padding: 5vw 1.5vw;
-    border-radius: 25px;
-    color: #fff;
-    text-align: center;
-}
-
-.page3-right {
-    flex: 2;
-}
-
-.page3-right img {
+.full-width-img img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.page3-left h3 {
-    font-size: 2vw;
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    /* transition: opacity 0.3s ease; */
+}
+
+.page3 {
+    position: relative;
+    /* min-height: 50vh; */
+    width: 100%;
+    padding: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page3-container{
+    /* max-width: 1200px; */
+    width: 100%;
+    padding: 2rem 6rem;
+    text-align: center;
+    font-family: inherit;
+    
+}
+
+.page3-container div{
+    color: #000;
+}
+
+.page3-container h3{
+    font-size: 3rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #000;
 }
 
-.page3-left p {
-    font-size: 1.2vw;
-    font-weight: 100;
-    line-height: 1.6;
-    color: #333;
+.page3-container p{
+    /* font-size: min(3.206vw, 82.6666666667px); */
+    font-size: 3rem;
+    letter-spacing: min(-.065vw, -1.24px);
+    line-height: min(4.653vw, 89.3333333333px);
+    word-spacing: min(-.065vw, -1.24px);
+    font-family: PP Mori Light;
+    font-weight: 500;
+    /* color: #555; */
+    color: #000;
     margin-bottom: 2rem;
     text-align: justify;
 }
 
-.page3-left button {
-    width: 100%;
+.page3-container button{
+    width: 10%;
     border-radius: 50px;
     border: none;
-    padding: 4px 0;
+    padding: 10px 0;
     color: black;
-    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -484,13 +500,13 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column;
     border-bottom: 2px solid #111;
-    font-family: PP Mori Light;
+    /* font-family: PP Mori Light; */
 }
 
 .about-us,
 .click-me {
   font-size: 5vw;
-  font-weight: 200;
+  font-weight: 500;
   color: #111;
   text-align: center;
   margin: 0;
@@ -638,6 +654,7 @@ h1, h2, h3, h4 {
     height: 60vh;
     width: 100%;
     background-color: #dadada;
+    /* background-color: #FEFCE1; */
     color: #111;
     z-index: 9;
     bottom: 0;
@@ -647,7 +664,7 @@ h1, h2, h3, h4 {
     justify-content: space-evenly;
     flex-direction: column;
     padding: 1vw 3vw;
-    border-top: 1px solid #111;
+    /* border-top: 1px solid #111; */
 }
 
 .footer-contents img{

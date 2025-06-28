@@ -205,20 +205,20 @@ document.addEventListener("DOMContentLoaded", () => {
     splitText(clickMe);
 
     // GSAP scroll animation (for About Us)
-    gsap.from(".about-us span", {
-        yPercent: 130,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 0.5,
-        ease: "back.out",
-        scrollTrigger: {
-            trigger: ".text-div",
-            scroller: ".main",
-            start: "top 80%",
-            toggleActions: "play none none none",
-            // markers: true
-        }
-    });
+    // gsap.from(".about-us span", {
+    //     yPercent: 130,
+    //     opacity: 0,
+    //     stagger: 0.05,
+    //     duration: 0.5,
+    //     ease: "back.out",
+    //     scrollTrigger: {
+    //         trigger: ".text-div",
+    //         scroller: ".main",
+    //         start: "top 80%",
+    //         toggleActions: "play none none none",
+    //         // markers: true
+    //     }
+    // });
 
     // Hover animation (with stagger in and out)
     const textDiv = document.querySelector(".text-div");
@@ -291,14 +291,14 @@ split = SplitText.create(".offshoring", {
         stagger: 0.1,
         ease: "expo.out",
         scrollTrigger: {
-        trigger: ".page2-container",
-        scroller: ".main",
-        start: "top 65%",
-        end: "bottom 20%",
-        toggleActions: "play none none none",
-        markers: true,
-        once: true
-    }
+            trigger: ".page2-container",
+            scroller: ".main",
+            start: "top 65%",
+            end: "bottom 20%",
+            toggleActions: "play none none none",
+            markers: true,
+            once: true
+        }
       });
       return split;
     }
@@ -327,3 +327,29 @@ split = SplitText.create(".offshoring", {
 //         once: true
 //     }
 // })
+
+split = SplitText.create(".arch-solut", {
+    type: "words,lines",
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 2,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
+            trigger: ".page3-container",
+            scroller: ".main",
+            start: "top 65%",
+            end: "bottom 20%",
+            toggleActions: "play none none none",
+            markers: true,
+            once: true
+        }
+      });
+      return split;
+    }
+  });
