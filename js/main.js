@@ -131,12 +131,6 @@ var tl = gsap.timeline({
         scrub:3
     }
 })
-tl.to('.page1 h1', {
-    x:-100, 
-},"anim")
-tl.to('.page1 h2', {
-    x:100, 
-},"anim")
 tl.to('.page1 .slideshow', {
     width:"70%"
 },"anim")
