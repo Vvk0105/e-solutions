@@ -36,31 +36,58 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
-
+        gsap.registerPlugin(SplitText);
         // Hero text animation
-        gsap.from(".solutions-hero h1", {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            delay: 0.3,
-            scrollTrigger: {
-                scroller: ".main",
-                trigger: ".solutions-hero h1",
-                start: "top 80%",
-                toggleActions: "play none none none"
+        split = SplitText.create(".solutions-hero h1", {
+            type: "words,lines",
+            linesClass: "line",
+            autoSplit: true,
+            mask: "lines",
+            onSplit: (self) => {
+            split = gsap.from(self.lines, {
+                duration: 2,
+                yPercent: 100,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: ".solutions-hero",
+                    scroller: ".main",
+                    start: "top 65%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none none",
+                    // markers: true,
+                    once: true
+                }
+            });
+            return split;
             }
         });
 
-        gsap.from(".solutions-hero p", {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            delay: 0.6,
-            scrollTrigger: {
-                scroller: ".main",
-                trigger: ".solutions-hero p",
-                start: "top 80%",
-                toggleActions: "play none none none"
+        split = SplitText.create(".solutions-hero p", {
+            type: "words,lines",
+            linesClass: "line",
+            autoSplit: true,
+            mask: "lines",
+            onSplit: (self) => {
+            split = gsap.from(self.lines, {
+                duration: 2,
+                delay: 0.5,
+                yPercent: 100,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: ".solutions-hero",
+                    scroller: ".main",
+                    start: "top 65%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none none",
+                    // markers: true,
+                    once: true
+                }
+            });
+            return split;
             }
         });
 
@@ -101,3 +128,81 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+    // split = SplitText.create(".category-hero-content h1", {
+    //     type: "words,lines",
+    //     linesClass: "line",
+    //     autoSplit: true,
+    //     mask: "lines",
+    //     onSplit: (self) => {
+    //     split = gsap.from(self.lines, {
+    //         duration: 2,
+    //         yPercent: 100,
+    //         opacity: 0,
+    //         stagger: 0.2,
+    //         ease: "expo.out",
+    //         scrollTrigger: {
+    //             trigger: ".category-hero",
+    //             scroller: ".main",
+    //             start: "top 65%",
+    //             end: "bottom 20%",
+    //             toggleActions: "play none none none",
+    //             // markers: true,
+    //             once: true
+    //         }
+    //     });
+    //     return split;
+    //     }
+    // });
+
+    split = SplitText.create(".category-hero-content p", {
+        type: "words,lines",
+        linesClass: "line",
+        autoSplit: true,
+        mask: "lines",
+        onSplit: (self) => {
+        split = gsap.from(self.lines, {
+            duration: 2,
+            yPercent: 100,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: ".category-hero",
+                scroller: ".main",
+                start: "top 65%",
+                end: "bottom 20%",
+                toggleActions: "play none none none",
+                // markers: true,
+                once: true
+            }
+        });
+        return split;
+        }
+    });
+
+    split = SplitText.create(".category-intro p", {
+        type: "words,lines",
+        linesClass: "line",
+        autoSplit: true,
+        mask: "lines",
+        onSplit: (self) => {
+        split = gsap.from(self.lines, {
+            duration: 2,
+            yPercent: 100,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: ".category-intro",
+                scroller: ".main",
+                start: "top 75%",
+                end: "bottom 20%",
+                toggleActions: "play none none none",
+                // markers: true,
+                once: true
+            }
+        });
+        return split;
+        }
+    });

@@ -123,11 +123,11 @@ tl4.to("#loader", {
 
 var tl = gsap.timeline({
     scrollTrigger:{
-        trigger:'.page1 slideshow',
+        trigger:'.page1',
         scroller:'.main',
         // markers:true,
-        start:"30% 20%",
-        end:"bottom 0%",
+        start: "30% 10%",
+        end: "bottom 30%",
         scrub:3
     }
 })
@@ -138,7 +138,7 @@ tl.to('.page1 h2', {
     x:100, 
 },"anim")
 tl.to('.page1 .slideshow', {
-    width:"60%"
+    width:"70%"
 },"anim")
 
 var tl2 = gsap.timeline({
@@ -296,7 +296,7 @@ split = SplitText.create(".offshoring", {
             start: "top 65%",
             end: "bottom 20%",
             toggleActions: "play none none none",
-            markers: true,
+            // markers: true,
             once: true
         }
       });
@@ -346,7 +346,7 @@ split = SplitText.create(".arch-solut", {
             start: "top 65%",
             end: "bottom 20%",
             toggleActions: "play none none none",
-            markers: true,
+            // markers: true,
             once: true
         }
       });
