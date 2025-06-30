@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 trigger: ".subcategory-section",
                 start: "top 70%",
                 toggleActions: "play none none none",
-                markers: false // Disable debug markers for production
+                // markers: true
             }
         });
 
@@ -167,15 +167,15 @@ document.addEventListener('DOMContentLoaded', function() {
             opacity: 0,
             stagger: 0.2,
             ease: "expo.out",
-            scrollTrigger: {
-                trigger: ".category-hero",
-                scroller: ".main",
-                start: "top 65%",
-                end: "bottom 20%",
-                toggleActions: "play none none none",
-                // markers: true,
-                once: true
-            }
+            // scrollTrigger: {
+            //     trigger: ".category-hero",
+            //     scroller: ".main",
+            //     start: "top 65%",
+            //     end: "bottom 20%",
+            //     toggleActions: "play none none none",
+            //     markers: true,
+            //     once: true
+            // }
         });
         return split;
         }
@@ -199,10 +199,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: "top 75%",
                 end: "bottom 20%",
                 toggleActions: "play none none none",
-                // markers: true,
+                markers: true,
                 once: true
             }
         });
         return split;
         }
     });
+
+var swiper = new Swiper('.swiper', {
+    spaceBetween: 10,
+    loop: true,
+    speed: 8500,
+    slidesPerView: 'auto',
+    freeMode: true,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false
+    },
+});

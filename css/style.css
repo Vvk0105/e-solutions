@@ -83,7 +83,7 @@ h1, h2, h3, h4 {
     position: fixed;
     top: 0;
     z-index: 99;
-    mix-blend-mode: difference;
+
 }
 
 #nav img{
@@ -95,9 +95,16 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    mix-blend-mode: difference;
     /* background-color: rgb(98, 98, 103);
     padding: 7px 15px;
     border-radius: 30px; */
+}
+
+#nav-part3{
+    mix-blend-mode: difference;
+    display: flex;
+    align-items: center;
 }
 
 #nav #circle{
@@ -108,7 +115,8 @@ h1, h2, h3, h4 {
 }
 
 #nav a{
-    font-size: .77rem;
+    color: #fff;
+    font-size: .7rem;
     font-weight: 400;
     text-transform: uppercase;
 }
@@ -116,7 +124,7 @@ h1, h2, h3, h4 {
 .nav-link {
     font-size: 0.95rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: #fff;
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
@@ -125,7 +133,7 @@ h1, h2, h3, h4 {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -0.2rem;
+    bottom: -0.1rem;
     left: 0;
     width: 0;
     height: 1.5px;
@@ -1050,6 +1058,7 @@ h1, h2, h3, h4 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     font-weight: 400;
+    color: #111;
 }
 
 .subcategory-content ul {
@@ -1170,4 +1179,255 @@ h1, h2, h3, h4 {
 .project-card p {
     font-size: 0.9rem;
     color: #777;
+}
+
+/* ALUMINIUM DOORS PAGE SPECIFIC STYLES */
+.product-hero {
+  position: relative;
+  height: 70vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+              url('../images/aluminium/doors-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 5rem;
+}
+
+.product-hero-content {
+  text-align: center;
+  padding: 0 2rem;
+  max-width: 800px;
+}
+
+.product-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.product-hero p {
+  font-size: 1.2rem;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+.product-types {
+  padding: 0 5rem 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 6rem;
+  align-items: center;
+}
+
+.product-card:nth-child(even) {
+  direction: rtl; /* Alternating layout */
+}
+
+.product-card:nth-child(even) > * {
+  direction: ltr; /* Reset text direction */
+}
+
+.product-image {
+  height: 500px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.03);
+}
+
+.product-specs {
+  padding: 2rem;
+}
+
+.product-specs h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.product-specs ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
+}
+
+.product-specs li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.product-specs li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #777;
+}
+
+.spec-btn {
+  background: transparent;
+  border: 1px solid #111;
+  color: #111;
+  background-color: #dadada;
+  padding: 0.8rem 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.spec-btn:hover {
+  background: #242424;
+  color: white;
+}
+
+.gallery-section {
+  padding: 5rem;
+  background: #f8f8f8;
+}
+
+.gallery-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  color: #000;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .product-hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .product-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .product-card:nth-child(even) {
+    direction: ltr;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-hero {
+    height: 60vh;
+    margin-bottom: 3rem;
+  }
+  
+  .product-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .product-hero p {
+    font-size: 1rem;
+  }
+  
+  .product-types,
+  .gallery-section {
+    padding: 2rem;
+  }
+  
+  .product-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-hero {
+    height: 50vh;
+  }
+  
+  .product-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.swiper {
+    width: auto;
+    /* height: 400px; */
+    overflow: hidden;
+    
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+    flex-shrink: 0;
+    
+}
+
+.swiper-slide img {
+    display: block;
+    width: 300px;
+    height: 100%;
+    object-fit: fill;
+}
+
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+}
+.swiper-wrapper {
+    transition-timing-function: linear !important;
 }
