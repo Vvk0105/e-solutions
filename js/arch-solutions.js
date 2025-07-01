@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: "top 75%",
                 end: "bottom 20%",
                 toggleActions: "play none none none",
-                markers: true,
+                // markers: true,
                 once: true
             }
         });
@@ -217,4 +217,51 @@ var swiper = new Swiper('.swiper', {
         delay: 0,
         disableOnInteraction: false
     },
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    window.addEventListener('load', function() {
+        gsap.from(".product-hero h1", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: "power2.out"
+        });
+
+        split = SplitText.create(".product-hero p", {
+                    type: "words,lines",
+                    linesClass: "line",
+                    autoSplit: true,
+                    mask: "lines",
+                    onSplit: (self) => {
+                    split = gsap.from(self.lines, {
+                        duration: 2,
+                        delay: 0.3,
+                        yPercent: 100,
+                        opacity: 0,
+                        stagger: 0.1,
+                        ease: "expo.out",
+                        scrollTrigger: {
+                            trigger: ".solutions-hero",
+                            scroller: ".main",
+                            start: "top 65%",
+                            end: "bottom 20%",
+                            toggleActions: "play none none none",
+                            // markers: true,
+                            once: true
+                        }
+                    });
+                    return split;
+                    }
+                });
+
+              });
+
+    // Refresh ScrollTrigger on resize
+    window.addEventListener('resize', function() {
+        ScrollTrigger.refresh();
+        locoScroll.update();
+    });
 });

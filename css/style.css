@@ -1407,12 +1407,13 @@ h1, h2, h3, h4 {
 }
 
 .swiper-slide {
+    /* background-color: red; */
     text-align: center;
     font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: start;
-    gap: 10px;
+    gap: 40px;
     flex-shrink: 0;
     
 }
