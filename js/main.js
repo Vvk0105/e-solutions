@@ -348,6 +348,59 @@ split = SplitText.create(".arch-solut", {
     }
   });
 
+  split = SplitText.create(".about-content h3", {
+    type: "words,lines",
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 2,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
+            trigger: ".about-container",
+            scroller: ".main",
+            start: "top 95%",
+            // end: "bottom 20%",
+            toggleActions: "play none none none",
+            // markers: true,
+            once: true
+        }
+      });
+      return split;
+    }
+  })
+
+  split = SplitText.create(".about-content p", {
+    type: "words,lines",
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 2,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
+            trigger: ".about-container",
+            scroller: ".main",
+            start: "top 95%",
+            // end: "bottom 20%",
+            toggleActions: "play none none none",
+            // markers: true,
+            once: true
+        }
+      });
+      return split;
+    }
+  })
 
     const magnet = document.querySelector('.margneto')
     const text = document.querySelector('.about-text')
