@@ -259,6 +259,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
               });
 
+
+              
     // Refresh ScrollTrigger on resize
     window.addEventListener('resize', function() {
         ScrollTrigger.refresh();
