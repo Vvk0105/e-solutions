@@ -338,7 +338,7 @@ split = SplitText.create(".arch-solut", {
             trigger: ".page3-container",
             scroller: ".main",
             start: "top 65%",
-            end: "bottom 20%",
+            // end: "bottom 20%",
             toggleActions: "play none none none",
             // markers: true,
             once: true

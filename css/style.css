@@ -350,7 +350,7 @@ h1, h2, h3, h4 {
 
 .page2-container p{
     /* font-size: min(3.206vw, 82.6666666667px); */
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: min(-.065vw, -1.24px);
     line-height: min(4.653vw, 89.3333333333px);
     word-spacing: min(-.065vw, -1.24px);
@@ -448,7 +448,7 @@ h1, h2, h3, h4 {
 
 .page3-container p{
     /* font-size: min(3.206vw, 82.6666666667px); */
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: min(-.065vw, -1.24px);
     line-height: min(4.653vw, 89.3333333333px);
     word-spacing: min(-.065vw, -1.24px);
@@ -493,7 +493,7 @@ h1, h2, h3, h4 {
 }
 
 .page3_1 {
-    padding: 6rem 10%;
+    padding: 8rem 10%;
     background-color: #0F0D0D;
     position: relative;
     overflow: hidden;
@@ -506,6 +506,7 @@ h1, h2, h3, h4 {
     max-width: 1400px;
     margin: 0 auto;
     gap: 4rem;
+    position: relative;
 }
 
 .about-content {
@@ -529,102 +530,84 @@ h1, h2, h3, h4 {
     margin-bottom: 2.5rem;
 }
 
-.stats-grid {
+.values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 500px;
+    max-width: 800px;
 }
 
-.stat-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem 1rem;
+.value-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem 1.5rem;
     border-radius: 8px;
-    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.stat-item:hover {
+.value-item:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.stat-number {
+.value-icon {
     font-size: 2rem;
-    font-weight: 300;
-    color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.stat-label {
+.value-item h4 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+}
+
+.value-item p {
     font-size: 0.9rem;
     color: #aaa;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    line-height: 1.6;
 }
 
-.magnet-button {
+.margneto {
     width: 12rem;
     height: 12rem;
     border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, #ff4d4d, #f9cb28);
-    color: #000;
+    background: #dadada;
+    color: #111;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(249, 203, 40, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.magnet-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(249, 203, 40, 0.4);
+.margneto .about-text {
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    z-index: 2;
+    color: #000;
+    /* transition: transform 0.3s ease; */
 }
 
-.magnet-button::before {
+.margneto::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.magnet-button:hover::before {
+.margneto:hover::before {
     opacity: 1;
-}
-
-.about-text {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.magnet-button:hover .about-text {
-    transform: translateY(-5px);
-}
-
-.arrow-icon {
-    width: 24px;
-    height: 24px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    color: #000;
-}
-
-.magnet-button:hover .arrow-icon {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -633,16 +616,15 @@ h1, h2, h3, h4 {
         text-align: center;
     }
     
-    .about-content p {
-        max-width: 100%;
+    .values-grid {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
     }
     
-    .stats-grid {
-        margin: 0 auto;
-    }
-    
-    .text-div {
+    .margneto {
         margin-top: 3rem;
+        width: 10rem;
+        height: 10rem;
     }
 }
 
