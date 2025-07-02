@@ -109,19 +109,20 @@ tl4.to("#loader h3", {
 tl4.to("#loader", {
     opacity:0,
 })
+
+// tl4.from(".slideshow", {
+//     // x: 100,
+//     opacity: 0,
+//     duration: 0.9,
+//     ease: "power4.out",
+//     stagger: 0.06,
+//     delay: -0.5,
+//     width: "70%"
+// })
+
 tl4.to("#loader", {
     display:"none"
 })
-tl4.from(".slideshow", {
-    // x: 100,
-    opacity: 0,
-    duration: 0.9,
-    ease: "power4.out",
-    stagger: 0.06,
-    delay: -0.9,
-    width: "70%"
-})
-
 // gsap.from(".page1 h1,.page1 h2", {
 //     x: 10,
 //     rotate: 10,

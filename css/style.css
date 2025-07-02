@@ -187,7 +187,7 @@ h1, h2, h3, h4 {
     filter: blur(20px) brightness(0.8); 
     transform: scale(1.02);
     transition: background-image 0.5s ease-in-out;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     /* Initial background - will be set by JS */
     background-image: url("images/vertical-shot-transparent-doors-commercial-building.jpg");
 }
@@ -199,7 +199,7 @@ h1, h2, h3, h4 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .page1 h1{
