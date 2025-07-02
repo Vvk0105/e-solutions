@@ -347,3 +347,52 @@ split = SplitText.create(".arch-solut", {
       return split;
     }
   });
+
+
+    const magnet = document.querySelector('.margneto')
+    const text = document.querySelector('.about-text')
+
+    const activateManet = (event)=>{
+        // get the postion of the magnet on the screen
+        let boundbox = magnet.getBoundingClientRect()
+
+        const magnetoStrength = 40
+        const textStrength = 80
+        const newX = ((event.clientX - boundbox.left)/magnet.offsetWidth - 0.5)
+        const newY = ((event.clientY - boundbox.top)/magnet.offsetHeight - 0.5)
+        
+        gsap.to(magnet, {
+            duration: 1,
+            x : newX * magnetoStrength,
+            y : newY * magnetoStrength,
+            ease: Power4.easeOut,
+        })
+
+        gsap.to(text, {
+            duration: 1,
+            x : newX * textStrength,
+            y : newY * textStrength,
+            ease: Power4.easeOut,
+        })
+    }
+
+    // move the btn to the new positon 
+
+    const resetManet = (event)=>{
+        gsap.to(magnet, {
+            duration: 1,
+            x : 0,
+            y : 0,
+            ease: Elastic.easeOut,
+        })
+
+        gsap.to(text, {
+            duration: 1,
+            x : 0,
+            y : 0,
+            ease: Elastic.easeOut,
+        })
+    }
+
+    magnet.addEventListener('mousemove',activateManet)
+    magnet.addEventListener('mouseleave',resetManet)
