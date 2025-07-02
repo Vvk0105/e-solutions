@@ -112,6 +112,15 @@ tl4.to("#loader", {
 tl4.to("#loader", {
     display:"none"
 })
+tl4.from(".slideshow", {
+    // x: 100,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power4.out",
+    stagger: 0.06,
+    delay: -0.9,
+    width: "70%"
+})
 
 // gsap.from(".page1 h1,.page1 h2", {
 //     x: 10,
