@@ -513,6 +513,10 @@ h1, h2, h3, h4 {
     flex: 1;
 }
 
+.about-container a {
+    text-decoration: none;
+}
+
 .about-content h3 {
     font-size: 1.8rem;
     color: #fff;
@@ -1546,49 +1550,365 @@ h1, h2, h3, h4 {
 }
 
 /* about page  */
-/* About Page Specific Styles */
 .about-hero {
     height: 80vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                 url('../images/about/hero-bg.jpg');
     background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 10%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-intro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8rem 10%;
     gap: 4rem;
-    padding: 8rem 10%;
 }
 
-.milestones {
-    padding: 6rem 10%;
-    background: #111;
-    border-top: 5px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 5px solid rgba(255, 255, 255, 0.1);
+.intro-content {
+    flex: 1;
 }
 
-.milestones-grid {
+.intro-content h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #dadada;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.intro-image {
+    flex: 1;
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.values-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.values-section {
-    padding: 8rem 10%;
+.value-card {
+    background: rgba(255,255,255,0.03);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
-.team-section {
-    padding: 6rem 10%;
-    background: #111;
+.value-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.08);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+.value-card p {
+    font-size: 1rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.timeline-year {
+    width: 120px;
+    text-align: right;
+    padding-right: 2rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+.timeline-content {
+    width: calc(50% - 60px);
+    padding-left: 2rem;
+    background: rgba(255,255,255,0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover img {
+    filter: grayscale(0%);
+}
+
+.team-member h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #aaa;
 }
 
 .about-cta {
-    padding: 6rem 10%;
     text-align: center;
+    padding: 6rem 10%;
+    background: rgba(255,255,255,0.03);
+}
+
+.about-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.about-cta p {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #dadada;
+    color: #111;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Magnetic Button Styles */
+.margneto {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    background: #dadada;
+    color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin: 2rem auto;
+}
+
+.margneto .text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.margneto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.margneto:hover::before {
+    opacity: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .about-intro {
+        flex-direction: column;
+    }
+    
+    .intro-content, .intro-image {
+        width: 100%;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-year {
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .margneto {
+        width: 10rem;
+        height: 10rem;
+    }
 }
 
 /* Contact Page Styles */
