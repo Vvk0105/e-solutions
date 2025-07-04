@@ -159,7 +159,7 @@ var tl2 = gsap.timeline({
 tl2.to('.main',{
     // backgroundColor:"#FAF9F6"
     // backgroundColor:"#D7D6D4"
-    backgroundColor:"#fff"
+    // backgroundColor:"#fff"
 
 })
 

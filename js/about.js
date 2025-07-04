@@ -1,4 +1,3 @@
-// about.js - Fixed Version
 document.addEventListener('DOMContentLoaded', function() {
     // Wait for all assets to load
     window.addEventListener('load', function() {
@@ -6,91 +5,140 @@ document.addEventListener('DOMContentLoaded', function() {
         const locoScroll = new LocomotiveScroll({
             el: document.querySelector(".main"),
             smooth: true,
-            multiplier: 0.8,
+            multiplier: 0.8, // Reduce scroll speed for better compatibility
             getDirection: true
         });
-
-        // Setup GSAP and ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-
         
-
-        // Hero animation
-        gsap.from(".about-hero h1", {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            delay: 0.3,
-            ease: "power2.out"
+        // Update ScrollTrigger when Locomotive Scroll updates
+        locoScroll.on("scroll", ScrollTrigger.update);
+        
+        // Tell ScrollTrigger to use these proxy methods for the ".main" element
+        ScrollTrigger.scrollerProxy(".main", {
+            scrollTop(value) {
+                return arguments.length ? 
+                    locoScroll.scrollTo(value, 0, 0) : 
+                    locoScroll.scroll.instance.scroll.y;
+            },
+            getBoundingClientRect() {
+                return {
+                    top: 0,
+                    left: 0,
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                };
+            },
+            pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
         });
 
-        // Milestones animation
-        gsap.from(".milestone-card", {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                scroller: ".main",
-                trigger: ".milestones",
-                start: "top 80%",
-                end: "top 50%",
-                toggleActions: "play none none none",
-                markers: false // Set to true to debug positions
-            }
-        });
-
-        // Values animation
-        gsap.from(".value-card", {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                scroller: ".main",
-                trigger: ".values-section",
-                start: "top 80%",
-                end: "top 50%",
-                toggleActions: "play none none none"
-            }
-        });
-
-        // Team animation
-        gsap.from(".team-card", {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                scroller: ".main",
-                trigger: ".team-section",
-                start: "top 80%",
-                end: "top 50%",
-                toggleActions: "play none none none"
-            }
-        });
-
-        // CTA animation
-        gsap.from(".about-cta", {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            scrollTrigger: {
-                scroller: ".main",
-                trigger: ".about-cta",
-                start: "top 80%",
-                end: "top 60%",
-                toggleActions: "play none none none"
-            }
-        });
-
-        // Refresh on resize
-        window.addEventListener('resize', function() {
-            ScrollTrigger.refresh();
-            locoScroll.update();
-        });
-
-        // Initial refresh
+        // Refresh ScrollTrigger when everything is set up
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
         ScrollTrigger.refresh();
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(SplitText);
     });
+
+
+    const magnet = document.querySelector('.margneto')
+    const text = document.querySelector('.about-text')
+
+    const activateManet = (event)=>{
+        // get the postion of the magnet on the screen
+        let boundbox = magnet.getBoundingClientRect()
+
+        const magnetoStrength = 40
+        const textStrength = 80
+        const newX = ((event.clientX - boundbox.left)/magnet.offsetWidth - 0.5)
+        const newY = ((event.clientY - boundbox.top)/magnet.offsetHeight - 0.5)
+        
+        gsap.to(magnet, {
+            duration: 1,
+            x : newX * magnetoStrength,
+            y : newY * magnetoStrength,
+            ease: Power4.easeOut,
+        })
+
+        gsap.to(text, {
+            duration: 1,
+            x : newX * textStrength,
+            y : newY * textStrength,
+            ease: Power4.easeOut,
+        })
+    }
+
+    const resetManet = (event)=>{
+        gsap.to(magnet, {
+            duration: 1,
+            x : 0,
+            y : 0,
+            ease: Elastic.easeOut,
+        })
+
+        gsap.to(text, {
+            duration: 1,
+            x : 0,
+            y : 0,
+            ease: Elastic.easeOut,
+        })
+    }
+
+    magnet.addEventListener('mousemove',activateManet)
+    magnet.addEventListener('mouseleave',resetManet)
+
+
+    split = SplitText.create(".intro-content h2, .intro-content p", {
+    type: "words,lines",
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 2,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
+            trigger: ".about-intro",
+            scroller: ".main",
+            start: "top 65%",
+            // end: "bottom 20%",
+            toggleActions: "play none none none",
+            // markers: true,
+            once: true
+        }
+      });
+      return split;
+    }
+  });
+
+  split = SplitText.create(".section-header h2, .section-header p", {
+    type: "words,lines",
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 2,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
+            trigger: ".values-section",
+            scroller: ".main",
+            start: "top 75%",
+            // end: "bottom 20%",
+            toggleActions: "play none none none",
+            markers: true,
+            once: true
+        }
+      });
+      return split;
+    }
+  });
+
+  
+
 });
