@@ -1544,3 +1544,153 @@ h1, h2, h3, h4 {
 .swiper-wrapper {
     transition-timing-function: linear !important;
 }
+
+/* about page  */
+/* About Page Specific Styles */
+.about-hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('../images/about/hero-bg.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 8rem 10%;
+}
+
+.milestones {
+    padding: 6rem 10%;
+    background: #111;
+    border-top: 5px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 5px solid rgba(255, 255, 255, 0.1);
+}
+
+.milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.values-section {
+    padding: 8rem 10%;
+}
+
+.team-section {
+    padding: 6rem 10%;
+    background: #111;
+}
+
+.about-cta {
+    padding: 6rem 10%;
+    text-align: center;
+}
+
+/* Contact Page Styles */
+.contact-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('../images/contact/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 6rem 10%;
+}
+
+.contact-form {
+    padding: 3rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.contact-form h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group select option,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    color: #757575;
+}
+
+.submit-btn {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #333;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: #f8f8f8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.map-container {
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
