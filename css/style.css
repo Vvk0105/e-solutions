@@ -502,6 +502,248 @@ h1, h2, h3, h4 {
     overflow: hidden;
 }
 
+
+/* Responsive Styles for Index Page */
+@media (max-width: 1200px) {
+    .page15-container {
+        gap: 2rem;
+    }
+    
+    .page2-container,
+    .page3-container {
+        padding: 2rem 4rem;
+    }
+    
+    .page2-container p,
+    .page3-container p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .page1 h1 {
+        margin-left: 25vw;
+    }
+    
+    .page1 h2 {
+        margin-left: 37vw;
+    }
+    
+    .page15-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .page15-left img {
+        width: 60%;
+        margin-bottom: 2rem;
+    }
+    
+    .page2-container button,
+    .page3-container button,
+    .page3-container a {
+        width: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    #nav {
+        padding: 0 15px;
+    }
+    
+    #nav-part2 {
+        gap: 10px;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+    }
+    
+    .page1 h1,
+    .page1 h2 {
+        font-size: 8vw;
+    }
+    
+    .page1 h1 {
+        margin-left: 20vw;
+    }
+    
+    .page1 h2 {
+        margin-left: 32vw;
+    }
+    
+    .slideshow {
+        height: 50vw;
+    }
+    
+    .page2-container,
+    .page3-container {
+        padding: 2rem;
+    }
+    
+    .page2-container h3,
+    .page3-container h3 {
+        font-size: 2rem;
+    }
+    
+    .page2-container p,
+    .page3-container p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+    
+    .page2-container button,
+    .page3-container button,
+    .page3-container a {
+        width: 30%;
+        padding: 12px 0;
+    }
+    
+    .full-width-img {
+        height: 60vh;
+    }
+    
+    .footer-contents {
+        gap: 30%;
+    }
+}
+
+@media (max-width: 576px) {
+    #nav img {
+        height: 25px;
+    }
+    
+    #nav-part2 {
+        gap: 8px;
+    }
+    
+    .nav-link {
+        font-size: 0.7rem;
+    }
+    
+    .page1 h1,
+    .page1 h2 {
+        font-size: 10vw;
+    }
+    
+    .page1 h1 {
+        margin-left: 15vw;
+    }
+    
+    .page1 h2 {
+        margin-left: 27vw;
+    }
+    
+    .slideshow {
+        height: 60vw;
+        margin-top: 8vw;
+    }
+    
+    .page15 {
+        padding: 3rem 5vw;
+    }
+    
+    .page15-left img {
+        width: 80%;
+    }
+    
+    .page15-right h3 {
+        font-size: 1.2rem;
+    }
+    
+    .page15-right p {
+        font-size: 0.9rem;
+    }
+    
+    .page2-container,
+    .page3-container {
+        padding: 1.5rem;
+    }
+    
+    .page2-container h3,
+    .page3-container h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page2-container p,
+    .page3-container p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .page2-container button,
+    .page3-container button,
+    .page3-container a {
+        width: 40%;
+        font-size: 0.7rem;
+    }
+    
+    .full-width-img {
+        height: 40vh;
+    }
+    
+    .footer-contents {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-menu ul,
+    .footer-terms ul {
+        align-items: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .page1 h1 {
+        margin-left: 10vw;
+    }
+    
+    .page1 h2 {
+        margin-left: 22vw;
+    }
+    
+    .slideshow {
+        height: 70vw;
+    }
+    
+    .page2-container p,
+    .page3-container p {
+        font-size: 1rem;
+    }
+    
+    .page2-container button,
+    .page3-container button,
+    .page3-container a {
+        width: 50%;
+    }
+    
+    #footer-bottom p {
+        font-size: 12px;
+    }
+}
+
+/* Specific adjustments for very small screens */
+@media (max-width: 350px) {
+    #nav-part2 {
+        gap: 5px;
+    }
+    
+    .nav-link {
+        font-size: 0.6rem;
+    }
+    
+    .page1 h1 {
+        margin-left: 5vw;
+    }
+    
+    .page1 h2 {
+        margin-left: 17vw;
+    }
+}
+
 .about-container {
     display: flex;
     justify-content: space-between;
