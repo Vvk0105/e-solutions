@@ -102,7 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     scroller: ".main",
                     trigger: card,
                     start: "top 80%",
-                    toggleActions: "play none none none"
+                    toggleActions: "play none none none",
+                    // markers:true
                 }
             });
         });
