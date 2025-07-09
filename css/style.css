@@ -1342,14 +1342,14 @@ h1, h2, h3, h4 {
 
 /* Subcategory Section */
 .subcategory-section {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
 .subcategory-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 300;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.05em;
   color: #333;
   position: relative;
@@ -1362,30 +1362,21 @@ h1, h2, h3, h4 {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
+  width: 80px;
   height: 2px;
   background-color: #777;
 }
 
-/* Product Card Simple */
+/* Product Card Simple - Mobile Layout */
 .product-card-simple {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 6rem;
-  align-items: center;
-}
-
-.product-card-simple:nth-child(even) {
-  direction: rtl; /* Alternating layout */
-}
-
-.product-card-simple:nth-child(even) > * {
-  direction: ltr; /* Reset text direction */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .product-image {
-  height: 500px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -1401,28 +1392,27 @@ h1, h2, h3, h4 {
 }
 
 .product-description {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .product-description h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: 0.05em;
   color: #333;
 }
 
 .product-description p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #555;
-  margin-bottom: 1.5rem;
 }
 
 /* Tablet View (768px and up) */
 @media (min-width: 768px) {
   .product-types {
-    padding: 0 3rem 4rem;
+    padding: 0 2rem 4rem;
   }
   
   .subcategory-title {
@@ -1430,35 +1420,18 @@ h1, h2, h3, h4 {
     margin-bottom: 3rem;
   }
   
-  .product-card-simple {
-    margin-bottom: 4rem;
-  }
-  
   .product-image {
-    height: 400px;
+    height: 350px;
   }
 }
 
-/* Desktop View (1024px and up) */
-@media (min-width: 1024px) {
-  .product-types {
-    padding: 0 5rem 5rem;
-  }
-  
-  .subcategory-section {
-    margin-bottom: 5rem;
-  }
-  
-  .subcategory-title {
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-  }
-  
+/* Small Desktop View (900px and up) */
+@media (min-width: 900px) {
   .product-card-simple {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 6rem;
+    gap: 2rem;
+    margin-bottom: 4rem;
   }
   
   .product-card-simple:nth-child(even) {
@@ -1470,7 +1443,36 @@ h1, h2, h3, h4 {
   }
   
   .product-image {
-    height: 500px;
+    height: 400px;
+  }
+  
+  .product-description {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop View (1024px and up) */
+@media (min-width: 1024px) {
+  .product-types {
+    padding: 0 3rem 5rem;
+  }
+  
+  .subcategory-section {
+    margin-bottom: 4rem;
+  }
+  
+  .subcategory-title {
+    font-size: 2.2rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  .product-card-simple {
+    gap: 3rem;
+    margin-bottom: 5rem;
+  }
+  
+  .product-image {
+    height: 450px;
   }
   
   .product-description {
@@ -1478,7 +1480,7 @@ h1, h2, h3, h4 {
   }
   
   .product-description h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
   
@@ -1487,7 +1489,27 @@ h1, h2, h3, h4 {
   }
 }
 
-/* Large Desktop View (1400px and up) */
+/* Large Desktop View (1200px and up) */
+@media (min-width: 1200px) {
+  .product-types {
+    padding: 0 5rem 5rem;
+  }
+  
+  .subcategory-title {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+  }
+  
+  .product-image {
+    height: 500px;
+  }
+  
+  .product-description h3 {
+    font-size: 2rem;
+  }
+}
+
+/* Extra Large Screens (1400px and up) */
 @media (min-width: 1400px) {
   .product-types {
     padding: 0 5rem 6rem;
@@ -1502,10 +1524,30 @@ h1, h2, h3, h4 {
   
   .subcategory-title {
     font-size: 1.6rem;
+    padding-bottom: 0.8rem;
+  }
+  
+  .subcategory-title::after {
+    width: 60px;
   }
   
   .product-image {
     height: 250px;
+  }
+  
+  .product-description h3 {
+    font-size: 1.4rem;
+  }
+  
+  .product-description p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Fix for alternating layout on small screens */
+@media (max-width: 899px) {
+  .product-card-simple:nth-child(even) {
+    direction: ltr;
   }
 }
 
