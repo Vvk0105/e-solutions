@@ -18,10 +18,10 @@ lazyloading();
 function page1slider(){
     document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.slide');
-            const background = document.querySelector('.page1-background');
+            // const background = document.querySelector('.page1-background');
             let currentSlide = 0;
             
-            background.style.backgroundImage = `url(${slides[0].querySelector('img').src})`;
+            // background.style.backgroundImage = `url(${slides[0].querySelector('img').src})`;
 
             function showNextSlide() {
                 // Hide current slide
@@ -459,3 +459,6 @@ split = SplitText.create(".arch-solut", {
 
     magnet.addEventListener('mousemove',activateManet)
     magnet.addEventListener('mouseleave',resetManet)
+
+
+    
