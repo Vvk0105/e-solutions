@@ -1465,6 +1465,16 @@ p span{
     color: #555;
 }
 
+@media (max-width: 768px) {
+    .subcategory-card:hover .category-image img {
+    transform: none;
+}
+    .subcategory-card:hover .category-cta {
+    padding-right: 1rem;
+    border-bottom: none;
+}
+}
+
 /* Aluminium Solutions Page Specific Styles */
 .category-hero {
     position: relative;
