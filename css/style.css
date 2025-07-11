@@ -1487,13 +1487,16 @@ p span{
 }
 
 .category-hero p {
-    /* font-size: min(2.306vw, 82.6666666667px); */
-    /* letter-spacing: min(-.065vw, -1.24px);
-    line-height: min(2.653vw, 89.3333333333px); */
     font-size: 3rem;
-    word-spacing: 0rem;
-    /* text-align: justify; */
-    /* text-indent: 2rem; */
+    font-weight: 200;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .category-hero p {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
 }
 
 .category-intro {
@@ -1510,7 +1513,7 @@ p span{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 0 5rem 5rem;
+    padding: 0 3rem 5rem;
     max-width: 1400px;
     margin: 0 auto;
 }
