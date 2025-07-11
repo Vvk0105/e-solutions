@@ -1281,7 +1281,7 @@ p span{
 
 @media (max-width: 768px) {
     .solutions-hero h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     
     .solutions-hero p {
@@ -1294,7 +1294,7 @@ p span{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 5rem;
+    padding: 2.6rem;
     max-width: 1600px;
     margin: 0 auto;
 }
