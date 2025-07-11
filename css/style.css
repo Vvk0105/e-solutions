@@ -465,9 +465,9 @@ p span{
 .page2-container p{
     /* font-size: min(3.206vw, 82.6666666667px); */
     font-size: 2.5rem;
-    letter-spacing: min(-.065vw, -1.24px);
+    /* letter-spacing: min(-.065vw, -1.24px); */
     line-height: 1.5;
-    word-spacing: min(-.065vw, -1.24px);
+    /* word-spacing: min(-.065vw, -1.24px); */
     font-family: PP Mori Light;
     font-weight: 500;
     /* color: #555; */
@@ -564,9 +564,9 @@ p span{
 .page3-container p{
     /* font-size: min(3.206vw, 82.6666666667px); */
     font-size: 2.5rem;
-    letter-spacing: min(-.065vw, -1.24px);
+    /* letter-spacing: min(-.065vw, -1.24px); */
     line-height: 1.5;
-    word-spacing: min(-.065vw, -1.24px);
+    /* word-spacing: min(-.065vw, -1.24px); */
     font-family: PP Mori Light;
     font-weight: 500;
     /* color: #555; */
@@ -598,13 +598,7 @@ p span{
         width: 100%;
     }
     
-    .page3-left h3 {
-        font-size: 2rem; 
-    }
-    
-    .page3-left p {
-        font-size: 1rem;
-    }
+  
 }
 
 .page3_1 {
