@@ -80,13 +80,8 @@ h1, h2, h3, h4 {
 }
 
 #logo img{
-    position: fixed;
-    top: 15px;
-    left: 30px;
-    z-index: 100;
-    mix-blend-mode: difference;
+    transition: transform 0.3s ease;
     height: 30px;
-    /* Your navbar styles here */
 }
 #nav{
     height: 60px;
@@ -564,6 +559,9 @@ p span{
 }
 
 @media (max-width: 768px) {
+    .page1{
+        padding-top: 0;
+    }
     #nav {
         padding: 0 15px;
     }
@@ -714,6 +712,9 @@ p span{
 }
 
 @media (max-width: 400px) {
+    .page1{
+        padding-top: 0;
+    }
     .page1 h1 {
         margin-left: 10vw;
     }
@@ -744,6 +745,9 @@ p span{
 
 /* Specific adjustments for very small screens */
 @media (max-width: 350px) {
+     .page1{
+        padding-top: 0;
+    }
 
     .slideshow {
         height: 60vw;
