@@ -1334,6 +1334,13 @@ p span{
     transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+    .category-card:hover .category-image img {
+    transform: none;
+}
+}
+
+
 .category-content {
     position: absolute;
     bottom: 0;
