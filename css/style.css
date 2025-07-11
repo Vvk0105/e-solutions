@@ -27,6 +27,7 @@ html, body{
     overflow-x: hidden;
     min-height: 100vh;
     width: 100%;
+    background-color: #111;
 }
 
 .page2, .page3, .page4 {
@@ -66,28 +67,45 @@ h1, h2, h3, h4 {
 #loader h3{
     font-size: 1.5vw;
     font-weight: 100;
-}
+}   
 
 #loader h3 span{
     color: red;
 }
+#logo {
+    position: fixed;
+    top: 15px;
+    left: 30px;
+    z-index: 100;
+}
 
+#logo img{
+    position: fixed;
+    top: 15px;
+    left: 30px;
+    z-index: 100;
+    mix-blend-mode: difference;
+    height: 30px;
+    /* Your navbar styles here */
+}
 #nav{
     height: 60px;
     width: 100%;
     /* background-color: red; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 30px;
     position: fixed;
     top: 0;
     z-index: 99;
+    mix-blend-mode: difference;
 
 }
 
 #nav img{
     height: 30px;
+    mix-blend-mode: normal;
 }
 
 #nav-part2{
@@ -112,19 +130,20 @@ h1, h2, h3, h4 {
     width: 15px;
     border-radius: 50%;
     background-color: #fff;
+    display: none;
 }
 
 #nav a{
-    color: #fff;
-    font-size: .7rem;
-    font-weight: 400;
+    /* color: #111; */
+    font-size: .8rem;
+    font-weight: 500;
     text-transform: uppercase;
 }
 
 .nav-link {
     font-size: 0.95rem;
     font-weight: 500;
-    color: #fff;
+    /* color: #fff; */
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
@@ -168,7 +187,7 @@ h1, h2, h3, h4 {
 
 .page1{
     position: relative;
-    min-height: 100vh;
+    min-height: auto;
     width: 100%;
     padding-top: 1vw;
     /* background-image: url("/images/1+1\ telescopic.png"); */
@@ -182,15 +201,13 @@ h1, h2, h3, h4 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
     background-size: cover;
     background-position: center;
-    filter: blur(20px) brightness(0.8); 
-    transform: scale(1.02);
-    transition: background-image 0.5s ease-in-out;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Initial background - will be set by JS */
-    background-image: url("images/vertical-shot-transparent-doors-commercial-building.jpg");
+    background-color: #fff;
+    /* filter: blur(20px) brightness(0.8);  */
+    /* transform: scale(1.02); */
+    /* transition: background-image 0.5s ease-in-out; */
+    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .page1-background::after {
@@ -210,7 +227,7 @@ h1, h2, h3, h4 {
     margin-left: 29vw;
 }
 
-.page1 h1 span{
+p span{
     color: red;
 }
 
@@ -266,8 +283,8 @@ h1, h2, h3, h4 {
 }
 
 .page1 .slideshow{
-    width: 90%;
-    margin-top: 4vw;
+    width: 100%;
+    margin-top: 3vw;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
@@ -354,7 +371,7 @@ h1, h2, h3, h4 {
     /* font-size: min(3.206vw, 82.6666666667px); */
     font-size: 2.5rem;
     letter-spacing: min(-.065vw, -1.24px);
-    line-height: min(4.653vw, 89.3333333333px);
+    line-height: 1.5;
     word-spacing: min(-.065vw, -1.24px);
     font-family: PP Mori Light;
     font-weight: 500;
@@ -453,7 +470,7 @@ h1, h2, h3, h4 {
     /* font-size: min(3.206vw, 82.6666666667px); */
     font-size: 2.5rem;
     letter-spacing: min(-.065vw, -1.24px);
-    line-height: min(4.653vw, 89.3333333333px);
+    line-height: 1.5;
     word-spacing: min(-.065vw, -1.24px);
     font-family: PP Mori Light;
     font-weight: 500;
@@ -727,6 +744,11 @@ h1, h2, h3, h4 {
 
 /* Specific adjustments for very small screens */
 @media (max-width: 350px) {
+
+    .slideshow {
+        height: 60vw;
+        padding-top: 9vw;
+    }
     #nav-part2 {
         gap: 5px;
     }
@@ -1233,6 +1255,7 @@ h1, h2, h3, h4 {
 
 .category-card:hover .category-cta {
     padding-right: 1rem;
+    border-bottom: 3px solid #e8195d;
 }
 
 /* Subcategory Section */
@@ -1454,6 +1477,7 @@ h1, h2, h3, h4 {
 
 .subcategory-card:hover .explore-cta {
     padding-right: 1rem;
+    border-bottom: 3px solid #e8195d;
 }
 
 .technical-features {
@@ -1608,7 +1632,7 @@ h1, h2, h3, h4 {
   transform: translateX(-50%);
   width: 80px;
   height: 2px;
-  background-color: #777;
+  background-color: #e8195d;
 }
 
 /* Product Card Simple - Mobile Layout */
