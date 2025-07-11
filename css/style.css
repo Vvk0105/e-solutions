@@ -1338,6 +1338,10 @@ p span{
     .category-card:hover .category-image img {
     transform: none;
 }
+    .category-card:hover .category-cta {
+    padding-right: 1rem;
+    border-bottom: none;
+}
 }
 
 
