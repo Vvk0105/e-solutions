@@ -1266,7 +1266,7 @@ p span{
 }
 
 .solutions-hero h1 {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
     letter-spacing: 0.1em;
@@ -1275,7 +1275,18 @@ p span{
 .solutions-hero p {
     font-size: 1.5rem;
     font-weight: 200;
+    max-width: 800px;
     letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .solutions-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .solutions-hero p {
+        font-size: 1.2rem;
+    }
 }
 
 /* Categories Grid */
