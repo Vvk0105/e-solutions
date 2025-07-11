@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             start: "top 75%",
             // end: "bottom 20%",
             toggleActions: "play none none none",
-            markers: true,
+            // markers: true,
             once: true
         }
       });
