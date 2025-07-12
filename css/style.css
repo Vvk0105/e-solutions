@@ -463,17 +463,14 @@ p span{
 }
 
 .page2-container p{
-    /* font-size: min(3.206vw, 82.6666666667px); */
     font-size: 2.5rem;
-    /* letter-spacing: min(-.065vw, -1.24px); */
-    line-height: 1.5;
-    /* word-spacing: min(-.065vw, -1.24px); */
+    line-height: 1.4;
     font-family: PP Mori Light;
     font-weight: 500;
     /* color: #555; */
     color: #000;
     margin-bottom: 2rem;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .page2-container button{
@@ -565,14 +562,14 @@ p span{
     /* font-size: min(3.206vw, 82.6666666667px); */
     font-size: 2.5rem;
     /* letter-spacing: min(-.065vw, -1.24px); */
-    line-height: 1.5;
+    line-height: 1.4;
     /* word-spacing: min(-.065vw, -1.24px); */
     font-family: PP Mori Light;
     font-weight: 500;
     /* color: #555; */
     color: #000;
     margin-bottom: 2rem;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .page3-container button,
@@ -1334,17 +1331,6 @@ p span{
     transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-    .category-card:hover .category-image img {
-    transform: none;
-}
-    .category-card:hover .category-cta {
-    padding-right: 1rem;
-    border-bottom: none;
-}
-}
-
-
 .category-content {
     position: absolute;
     bottom: 0;
@@ -1376,6 +1362,20 @@ p span{
 .category-card:hover .category-cta {
     padding-right: 1rem;
     border-bottom: 3px solid #e8195d;
+}
+
+@media (max-width: 768px) {
+    .category-card:hover {
+    transform: none;
+}
+    
+    .category-card:hover .category-image img {
+    transform: none;
+}
+    .category-card:hover .category-cta {
+    padding-right: 1rem;
+    border-bottom: none;
+}
 }
 
 /* Subcategory Section */
