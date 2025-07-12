@@ -464,13 +464,10 @@ p span{
 
 .page2-container p{
     font-size: 2.5rem;
-    line-height: 1.4;
-    font-family: PP Mori Light;
-    font-weight: 500;
-    /* color: #555; */
-    color: #000;
-    margin-bottom: 2rem;
-    /* text-align: justify; */
+    line-height: 1.8;
+    color: #dadada;
+    min-width: 300px;
+    margin-bottom: 2.5rem;
 }
 
 .page2-container button{
@@ -696,6 +693,7 @@ p span{
     .page3-container p {
         font-size: 1.5rem;
         line-height: 1.5;
+        font-size: PP Mori;
     }
     
     .page2-container button,
