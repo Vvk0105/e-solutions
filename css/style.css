@@ -9,7 +9,13 @@
     src: url('/fonts/PPMori-Extralight.woff2') format('woff2');
     font-weight: 200; /* Helps browsers auto-select light weight */
 }
-
+:root {
+    --primary: #212848;
+    --secondary: #0F0D0D;
+    --accent: #5b6fc7;
+    --text: #fff;
+    --light-text: #aaa;
+}
 *{
     margin: 0;
     padding: 0;
@@ -108,14 +114,14 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     /* background-color: rgb(98, 98, 103);
     padding: 7px 15px;
     border-radius: 30px; */
 }
 
 #nav-part3{
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     display: flex;
     align-items: center;
 }
@@ -184,7 +190,7 @@ h1, h2, h3, h4 {
     position: fixed;
     right: 30px;
     top: 20px;
-    /* mix-blend-mode: difference; */
+    mix-blend-mode: difference;
 }
 
 .menu-toggle span {
@@ -223,6 +229,7 @@ h1, h2, h3, h4 {
         transition: right 0.5s ease;
         z-index: 90;
         padding: 60px 0;
+        /* mix-blend-mode: difference; */
     }
     
     #nav-part2.active {
@@ -463,19 +470,25 @@ p span{
 }
 
 .page2-container p{
-    font-size: 2.5rem;
-    line-height: 1.8;
-    color: #dadada;
-    min-width: 300px;
-    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    font-family: PP Mori Light;
+    font-weight: 500;
+    /* color: #555; */
+    color: #000;
+    margin-bottom: 2rem;
+    /* text-align: justify; */
 }
 
-.page2-container button{
+.page2-container a{
+    font-size: 0.8rem;
     width: 10%;
     border-radius: 50px;
     border: none;
-    padding: 10px 0;
+    padding: 10px 20px;
     color: black;
+    background-color: #dadada;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -557,7 +570,7 @@ p span{
 
 .page3-container p{
     /* font-size: min(3.206vw, 82.6666666667px); */
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     /* letter-spacing: min(-.065vw, -1.24px); */
     line-height: 1.4;
     /* word-spacing: min(-.065vw, -1.24px); */
@@ -575,9 +588,9 @@ p span{
     width: 10%;
     border-radius: 50px;
     border: none;
-    padding: 10px 0px;
+    padding: 10px 20px;
     color: black;
-    /* background-color: #dadada; */
+    background-color: #dadada;
     text-decoration: none;
 }
 
@@ -693,7 +706,6 @@ p span{
     .page3-container p {
         font-size: 1.5rem;
         line-height: 1.5;
-        font-size: PP Mori;
     }
     
     .page2-container button,
@@ -2517,5 +2529,251 @@ p span{
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+
+/* offshoring page  */
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Hero Section */
+.offshore-hero {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #4a5db0;
+    transform: translateY(-3px);
+}
+
+/* Section Styles */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background-color: #e8195d;
+}
+
+
+
+/* Pain Points Section */
+.pain-points {
+    background-color: #111;
+}
+
+.points-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.point-card {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 3px solid #e8195d;
+}
+
+.point-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* Solution Section */
+.solution-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.comparison-table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+}
+
+.comparison-table th, 
+.comparison-table td {
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.comparison-table th {
+    font-weight: 400;
+    color: #e8195d;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: rgba(255,255,255,0.03);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card h3{
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.08);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+/* Why Choose Us */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-top: 5px;
+}
+
+/* Why Kerala */
+.location-section {
+    position: relative;
+    height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('images/kerala-office.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.location-content {
+    max-width: 600px;
+    padding: 2rem;
+    background: rgba(0,0,0,0.7);
+    border-left: 3px solid #e8195d;
+    line-height: 1.5;
+}
+
+/* Final CTA */
+.final-cta {
+    text-align: center;
+    background-color: var(--primary);
+    line-height: 1.5;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.secondary-button {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+    
+    .points-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .solution-overview {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .section-title {
+        font-size: 3rem;
     }
 }
