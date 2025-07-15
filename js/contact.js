@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 scroller: ".main",
                 start: "top 90%",
                 toggleActions: "play none none none",
-                markers:true
+                // markers:true
             },
             y: 50,
             opacity: 0,

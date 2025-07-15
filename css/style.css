@@ -289,37 +289,12 @@ h1, h2, h3, h4 {
 
 .page1{
     position: relative;
-    min-height: auto;
+    min-height: 100vh;
     width: 100%;
-    padding-top: 1vw;
+    /* padding-top: 1vw; */
     /* background-image: url("/images/1+1\ telescopic.png"); */
     background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
-}
-
-.page1-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-color: #fff;
-    /* filter: blur(20px) brightness(0.8);  */
-    /* transform: scale(1.02); */
-    /* transition: background-image 0.5s ease-in-out; */
-    /* background-color: rgba(0, 0, 0, 0.5); */
-}
-
-.page1-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .page1 h1{
@@ -385,8 +360,9 @@ p span{
 }
 
 .page1 .slideshow{
+    height: 100vh;
     width: 100%;
-    margin-top: 3vw;
+    margin-top: 0;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
