@@ -213,7 +213,20 @@ tl2.to('.main',{
 //     backgroundColor:"#0F0D0D"
 // })
 
-
+// Footer animation
+gsap.from("#footer", {
+    scrollTrigger: {
+        trigger: "#footer",
+        scroller: ".main",
+        start: "top 80%",
+        toggleActions: "play none none none",
+        // markers:true
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+});
 const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 document.querySelectorAll('.elem').forEach(elem => {
   if (isTouchDevice) {
