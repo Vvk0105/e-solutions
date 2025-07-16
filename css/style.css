@@ -1610,17 +1610,22 @@ p span{
     border-bottom: 3px solid #e8195d;
 }
 
-@media (max-width: 768px) {
-    .subcategory-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
+@media (hover: none) {
+  .subcategory-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
 
-    .subcategory-card:hover .explore-cta {
-    padding-right: none;
+  .subcategory-card:hover .subcategory-image img {
+    transform: none;
+  }
+
+  .subcategory-card:hover .explore-cta {
+    padding-right: 0;
     border-bottom: none;
+  }
 }
-}
+
 .technical-features {
     padding: 5rem;
     background: #f8f8f8;
