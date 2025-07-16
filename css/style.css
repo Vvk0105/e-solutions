@@ -1615,6 +1615,11 @@ p span{
         transform: none;
         box-shadow: none;
     }
+
+    .subcategory-card:hover .explore-cta {
+    padding-right: none;
+    border-bottom: none;
+}
 }
 .technical-features {
     padding: 5rem;
