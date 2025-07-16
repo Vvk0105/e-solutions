@@ -264,8 +264,11 @@ var swiper = new Swiper('.swiper', {
     freeMode: true,
     autoplay: {
         delay: 0,
-        disableOnInteraction: false
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false
     },
+    allowTouchMove: true,
+    touchReleaseOnEdges: true,
 });
 
 document.addEventListener('DOMContentLoaded', function() {

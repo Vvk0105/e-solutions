@@ -1,3 +1,4 @@
+document.body.classList.add('loading');
 function lazyloading() {
     // Load images when in viewport
     const lazyImages = document.querySelectorAll(".lazyload");
