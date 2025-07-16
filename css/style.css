@@ -1610,6 +1610,12 @@ p span{
     border-bottom: 3px solid #e8195d;
 }
 
+@media (max-width: 768px) {
+    .subcategory-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
 .technical-features {
     padding: 5rem;
     background: #f8f8f8;
