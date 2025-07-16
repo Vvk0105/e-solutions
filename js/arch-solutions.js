@@ -269,6 +269,22 @@ var swiper = new Swiper('.swiper', {
     },
     allowTouchMove: true,
     touchReleaseOnEdges: true,
+
+    // Add breakpoints for responsive behavior
+    breakpoints: {
+        320: {
+            spaceBetween: 8,
+        },
+        480: {
+            spaceBetween: 10,
+        },
+        768: {
+            spaceBetween: 15,
+        },
+        1024: {
+            spaceBetween: 20,
+        }
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
