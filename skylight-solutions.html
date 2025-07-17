@@ -46,7 +46,8 @@
 
         <div class="subcategories-grid">
             <!-- Skylights -->
-            <a href="#" class="subcategory-card">
+            <!-- Skylights -->
+            <div class="subcategory-card">
                 <div class="subcategory-image">
                     <img src="web3/sky/Skylight.avif" loading="lazy">
                 </div>
@@ -57,12 +58,23 @@
                         <li>Thermal break aluminum frames</li>
                         <li>Self-cleaning glass options</li>
                     </ul>
-                    <!-- <span class="explore-cta">View Products →</span> -->
+                    <button class="toggle-glass-btn" onclick="togglePopup(this)">View Glass Options</button>
+                    <div class="glass-popup">
+                        <div class="glass-popup-content">
+                            <h4>Glass Options:</h4>
+                            <ul>
+                                <li>Single Glazed (Toughened /Tempered)</li>
+                                <li>Laminated</li>
+                                <li>Frosted</li>
+                                <li>Performance</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
 
             <!-- Pergolas -->
-            <a href="#" class="subcategory-card">
+            <div class="subcategory-card">
                 <div class="subcategory-image">
                     <img src="web3/sky/pergola1.avif" loading="lazy">
                 </div>
@@ -73,12 +85,23 @@
                         <li>Motorized louver options</li>
                         <li>Integrated lighting</li>
                     </ul>
-                    <!-- <span class="explore-cta">View Products →</span> -->
+                    <button class="toggle-glass-btn" onclick="togglePopup(this)">View Glass Options</button>
+                    <div class="glass-popup">
+                        <div class="glass-popup-content">
+                            <h4>Glass Options:</h4>
+                            <ul>
+                                <li>Single Glazed (Toughened /Tempered)</li>
+                                <li>Laminated</li>
+                                <li>Frosted</li>
+                                <li>Performance</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
 
             <!-- Gazebos -->
-            <a href="#" class="subcategory-card">
+            <div class="subcategory-card">
                 <div class="subcategory-image">
                     <img src="web3/sky/glass-gazebo-4.avif" loading="lazy">
                 </div>
@@ -89,9 +112,21 @@
                         <li>Weather-resistant finishes</li>
                         <li>Glass or polycarbonate roofing</li>
                     </ul>
-                    <!-- <span class="explore-cta">View Products →</span> -->
+                    <button class="toggle-glass-btn" onclick="togglePopup(this)">View Glass Options</button>
+                    <div class="glass-popup">
+                        <div class="glass-popup-content">
+                            <h4>Glass Options:</h4>
+                            <ul>
+                                <li>Single Glazed (Toughened /Tempered)</li>
+                                <li>Laminated</li>
+                                <li>Frosted</li>
+                                <li>Performance</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
+
         </div>
 
         <div class="technical-features">
@@ -167,9 +202,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/arch-solutions.js"></script>
-    <!-- Same footer as your main page -->
+    <script>
+        function togglePopup(button) {
+        const popup = button.nextElementSibling;
+        const isVisible = popup.style.display === "block";
+
+        // Hide all other popups
+        document.querySelectorAll('.glass-popup').forEach(p => p.style.display = 'none');
+        document.querySelectorAll('.toggle-glass-btn').forEach(btn => btn.textContent = "View Glass Options");
+
+        if (!isVisible) {
+            popup.style.display = "block";
+            button.textContent = "Hide Glass Options";
+        } else {
+            popup.style.display = "none";
+            button.textContent = "View Glass Options";
+        }
+    }
+    </script>
 </body>
 </html>

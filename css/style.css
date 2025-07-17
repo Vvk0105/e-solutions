@@ -1537,10 +1537,11 @@ p span{
 }
 
 .subcategory-card {
+    position: relative;
     background: white;
     border: 1px solid #eaeaea;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    overflow: hidden;
+    overflow: visible;
     color: #111;
     text-decoration: none;
 }
@@ -1575,6 +1576,92 @@ p span{
     margin-bottom: 1rem;
     font-weight: 400;
     color: #111;
+}
+
+.subcategory-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    color: #111;
+}
+
+.subcategory-content {
+    position: relative;
+}
+
+.glass-popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    animation: fadeSlideIn 0.3s ease forwards;
+}
+
+.glass-popup-content {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.glass-popup h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #111;
+}
+
+.glass-popup ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.glass-popup li {
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+}
+
+.glass-popup li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #888;
+}
+
+.subcategories-grid {
+    position: relative;
+    z-index: 0;
+}
+
+.toggle-glass-btn {
+    background-color: #e8195d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-glass-btn:hover {
+    background-color: #c7164b;
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .subcategory-content ul {

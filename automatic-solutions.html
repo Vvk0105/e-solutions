@@ -48,7 +48,7 @@
         <!-- Subcategories Grid -->
         <div class="subcategories-grid">
             <!-- Sliding Doors -->
-            <a href="#" class="subcategory-card">
+            <div class="subcategory-card">
                 <div class="subcategory-image">
                     <img src="web3/auto/sliding.avif" alt="Automatic Sliding Doors" loading="lazy">
                 </div>
@@ -59,12 +59,25 @@
                         <li>Heavy-duty commercial grade</li>
                         <li>Low-energy options available</li>
                     </ul>
-                    <!-- <span class="explore-cta">View Products →</span> -->
+
+                    <button class="toggle-glass-btn" onclick="togglePopup(this)">View Glass Options</button>
+
+                    <div class="glass-popup">
+                        <div class="glass-popup-content">
+                            <h4>Glass Options:</h4>
+                            <ul>
+                                <li>Tempered Glass</li>
+                                <li>Laminated Glass</li>
+                                <li>Frosted Glass</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
+
 
             <!-- Swing Doors -->
-            <a href="#" class="subcategory-card">
+            <div class="subcategory-card">
                 <div class="subcategory-image">
                     <img src="web3/auto/swing.avif" alt="Automatic Swing Doors" loading="lazy">
                 </div>
@@ -75,12 +88,24 @@
                         <li>Push-and-go or full automation</li>
                         <li>Hospital-grade soft closing</li>
                     </ul>
-                    <!-- <span class="explore-cta">View Products →</span> -->
+
+                    <button class="toggle-glass-btn" onclick="togglePopup(this)">View Glass Options</button>
+
+                    <div class="glass-popup">
+                        <div class="glass-popup-content">
+                            <h4>Glass Options:</h4>
+                            <ul>
+                                <li>Clear Glass</li>
+                                <li>Acoustic Laminated Glass</li>
+                                <li>Switchable Privacy Glass</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
 
             <!-- Curved Sliding Doors -->
-            <a href="#" class="subcategory-card">
+            <div class="subcategory-card">
                 <div class="subcategory-image">
                     <img src="web3/auto/curved.avif" alt="Curved Sliding Doors" loading="lazy">
                 </div>
@@ -91,12 +116,24 @@
                         <li>Seamless curved track systems</li>
                         <li>Premium architectural finishes</li>
                     </ul>
-                    <!-- <span class="explore-cta">View Products →</span> -->
+
+                    <button class="toggle-glass-btn" onclick="togglePopup(this)">View Frame Finish</button>
+
+                    <div class="glass-popup">
+                        <div class="glass-popup-content">
+                            <h4>Frame Finish Options:</h4>
+                            <ul>
+                                <li>Brushed Aluminium</li>
+                                <li>Bronze Anodized</li>
+                                <li>Custom Powder Coat</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
 
             <!-- Revolving Doors -->
-            <a href="#" class="subcategory-card">
+            <div class="subcategory-card">
                 <div class="subcategory-image">
                     <img src="web3/auto/revolved.avif" alt="Revolving Doors" loading="lazy">
                 </div>
@@ -107,9 +144,21 @@
                         <li>Energy-saving airlock design</li>
                         <li>Emergency breakout features</li>
                     </ul>
-                    <!-- <span class="explore-cta">View Products →</span> -->
+
+                    <button class="toggle-glass-btn" onclick="togglePopup(this)">View Glass Options</button>
+
+                    <div class="glass-popup">
+                        <div class="glass-popup-content">
+                            <h4>Glass Options:</h4>
+                            <ul>
+                                <li>Safety Glass</li>
+                                <li>Bullet-Resistant Glass</li>
+                                <li>Low-E Glass</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
 
         <!-- Technical Features Section -->
@@ -192,6 +241,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/arch-solutions.js"></script>
-    <!-- Same footer as your main page -->
+   <script>
+    function togglePopup(button) {
+    const popup = button.nextElementSibling;
+    const isVisible = popup.style.display === "block";
+
+    // Hide all other popups
+    document.querySelectorAll('.glass-popup').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.toggle-glass-btn').forEach(btn => btn.textContent = "View Glass Options");
+
+    if (!isVisible) {
+        popup.style.display = "block";
+        button.textContent = "Hide Glass Options";
+    }
+}
+    </script>
+    
 </body>
 </html>
