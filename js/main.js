@@ -119,46 +119,37 @@ function init(){
 
 init();
 
-var tl4 = gsap.timeline()
+if (!sessionStorage.getItem('visited')) {
+    var tl4 = gsap.timeline();
 
-tl4.from("#loader h3", {
-    x: 40,
-    opacity: 0,
-    duration: 1.4,
-    // ease: "power4.out",
-    stagger: 0.1,
-})
-tl4.to("#loader h3", {
-    x: -40,
-    opacity: 0,
-    duration: 1,
-    // ease: "power4.out",
-    stagger: -0.1,
-})
-tl4.to("#loader", {
-    opacity:0,
-})
+    tl4.from("#loader h3", {
+        x: 40,
+        opacity: 0,
+        duration: 1.4,
+        ease: "power4.out",
+        stagger: 0.1,
+    });
+    tl4.to("#loader h3", {
+        x: -40,
+        opacity: 0,
+        duration: 1,
+        ease: "power4.out",
+        stagger: -0.1,
+    });
+    tl4.to("#loader", {
+        opacity: 0,
+    });
+    tl4.to("#loader", {
+        display: "none",
+        onComplete: () => {
+            sessionStorage.setItem('visited', true);
+        }
+    });
+} else {
 
-// tl4.from(".slideshow", {
-//     // x: 100,
-//     opacity: 0,
-//     duration: 0.9,
-//     ease: "power4.out",
-//     stagger: 0.06,
-//     delay: -0.5,
-//     width: "70%"
-// })
+    document.getElementById("loader").style.display = "none";
+}
 
-tl4.to("#loader", {
-    display:"none"
-})
-// gsap.from(".page1 h1,.page1 h2", {
-//     x: 10,
-//     rotate: 10,
-//     opacity: 0,
-//     delay: 2.5,
-//     duration: 0.7
-// })
 
 var tl = gsap.timeline({
     scrollTrigger:{
@@ -184,28 +175,6 @@ var tl2 = gsap.timeline({
         scrub:3
     }
 })
-
-tl2.to('.main',{
-    // backgroundColor:"#FAF9F6"
-    // backgroundColor:"#D7D6D4"
-    // backgroundColor:"#fff"
-
-})
-
-// var tl3 = gsap.timeline({
-//     scrollTrigger:{
-//         trigger:'.page4',
-//         scroller:'.main',
-//         // markers:true,
-//         start:"top 70%",
-//         end:"top 70%",
-//         scrub:3
-//     }
-// })
-
-// tl3.to('.main',{
-//     backgroundColor:"#0F0D0D"
-// })
 
 // Footer animation
 gsap.from("#footer", {
