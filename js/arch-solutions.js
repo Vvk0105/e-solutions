@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Refresh ScrollTrigger when everything is set up
+        locoScroll.on("scroll", ScrollTrigger.update);
         ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
         ScrollTrigger.refresh();
         
@@ -178,31 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-    // split = SplitText.create(".category-hero-content h1", {
-    //     type: "words,lines",
-    //     linesClass: "line",
-    //     autoSplit: true,
-    //     mask: "lines",
-    //     onSplit: (self) => {
-    //     split = gsap.from(self.lines, {
-    //         duration: 2,
-    //         yPercent: 100,
-    //         opacity: 0,
-    //         stagger: 0.2,
-    //         ease: "expo.out",
-    //         scrollTrigger: {
-    //             trigger: ".category-hero",
-    //             scroller: ".main",
-    //             start: "top 65%",
-    //             end: "bottom 20%",
-    //             toggleActions: "play none none none",
-    //             // markers: true,
-    //             once: true
-    //         }
-    //     });
-    //     return split;
-    //     }
-    // });
 
     split = SplitText.create(".category-hero-content p", {
         type: "words,lines",
