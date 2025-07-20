@@ -80,6 +80,7 @@ page1slider();
     });
 });
 
+
 function init(){
     gsap.registerPlugin(ScrollTrigger);
 
