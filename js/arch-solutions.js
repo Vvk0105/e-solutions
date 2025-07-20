@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Refresh ScrollTrigger when everything is set up
-        
         ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
         ScrollTrigger.refresh();
         
