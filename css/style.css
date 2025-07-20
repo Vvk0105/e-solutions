@@ -36,6 +36,34 @@ html, body{
     background-color: #111;
 }
 
+.fixed-logo {
+    position: fixed;
+    bottom: 30px;
+    right: 5px;
+    z-index: 999;
+    width: 60px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.fixed-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.fixed-logo:hover {
+    transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) {
+    .fixed-logo {
+        width: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
 .page2, .page3, .page4 {
   width: 100%;
   padding: 2rem 5%; 
