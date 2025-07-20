@@ -45,23 +45,12 @@ h1, h2, h3, h4 {
   font-size: clamp(1.5rem, 5vw, 3rem); /* Scales between 1.5rem and 3rem */
 }
 
-/* .cursor{
-    height: 12px;
-    width: 12px;
-    background-color: red;
-    border-radius: 50%;
-    position: fixed;
-    z-index: 9;
-    mix-blend-mode: difference;
-    transition: left linear 0.1s top linear 0.1s;
-} */
-
 #loader{
     height: 100%;
     width: 100%;
     position: fixed;
     top: 0;
-    background-color: #212848;
+    background-color: #fff;
     z-index: 999;
     display: flex;
     justify-content: center;
@@ -73,6 +62,7 @@ h1, h2, h3, h4 {
 #loader h3{
     font-size: 1.5vw;
     font-weight: 100;
+    color: #000000;
 }   
 
 #loader h3 span{
@@ -891,6 +881,10 @@ p span{
     color: #dadada;
     max-width: 600px;
     margin-bottom: 2.5rem;
+}
+
+.about-content p span div{
+    color: red;
 }
 
 .values-grid {
@@ -1916,10 +1910,16 @@ p span{
 }
 
 .product-details h4 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin: 1.2rem 0 0.5rem;
-    color: #444;
+    background-color: #e8195d;
+    color: white;
+    border: none;
+    padding: 6px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+    width: 110px;
 }
 
 .product-details ul {
@@ -1965,7 +1965,7 @@ p span{
     }
     
     .product-details h4 {
-        font-size: 1.3rem;
+        font-size: 0.9rem;
     }
 }
 
