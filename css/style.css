@@ -63,7 +63,13 @@ h1, h2, h3, h4 {
     font-size: 1.5vw;
     font-weight: 100;
     color: #000000;
-}   
+}
+
+@media (max-width: 768px) {
+    #loader h3{
+        font-size: 3vh;
+    }
+}
 
 #loader h3 span{
     color: red;

@@ -126,14 +126,14 @@ if (!sessionStorage.getItem('visited')) {
         x: 40,
         opacity: 0,
         duration: 1.4,
-        ease: "power4.out",
+        // ease: "power4.out",
         stagger: 0.1,
     });
     tl4.to("#loader h3", {
         x: -40,
         opacity: 0,
         duration: 1,
-        ease: "power4.out",
+        // ease: "power4.out",
         stagger: -0.1,
     });
     tl4.to("#loader", {
