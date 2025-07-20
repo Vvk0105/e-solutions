@@ -118,35 +118,37 @@ function init(){
 }
 
 init();
-window.onload = function () {
-    if (!sessionStorage.getItem('visited')) {
-        var tl4 = gsap.timeline();
 
-        tl4.from("#loader h3", {
-            x: 40,
-            opacity: 0,
-            duration: 1.4,
-            stagger: 0.1,
-        });
-        tl4.to("#loader h3", {
-            x: -40,
-            opacity: 0,
-            duration: 1,
-            stagger: -0.1,
-        });
-        tl4.to("#loader", {
-            opacity: 0,
-        });
-        tl4.to("#loader", {
-            display: "none",
-            onComplete: () => {
-                sessionStorage.setItem('visited', true);
-            }
-        });
-    } else {
-        document.getElementById("loader").style.display = "none";
-    }
-};
+if (!sessionStorage.getItem('visited')) {
+    var tl4 = gsap.timeline();
+
+    tl4.from("#loader h3", {
+        x: 40,
+        opacity: 0,
+        duration: 1.4,
+        // ease: "power4.out",
+        stagger: 0.1,
+    });
+    tl4.to("#loader h3", {
+        x: -40,
+        opacity: 0,
+        duration: 1,
+        // ease: "power4.out",
+        stagger: -0.1,
+    });
+    tl4.to("#loader", {
+        opacity: 0,
+    });
+    tl4.to("#loader", {
+        display: "none",
+        onComplete: () => {
+            sessionStorage.setItem('visited', true);
+        }
+    });
+} else {
+
+    document.getElementById("loader").style.display = "none";
+}
 
 
 var tl = gsap.timeline({
