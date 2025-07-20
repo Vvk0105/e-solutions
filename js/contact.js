@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Wait for all assets to load
     window.addEventListener('load', function() {
-        // Initialize Locomotive Scroll
         const locoScroll = new LocomotiveScroll({
             el: document.querySelector(".main"),
             smooth: true,
@@ -9,10 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
             getDirection: true
         });
         
-        // Update ScrollTrigger when Locomotive Scroll updates
         locoScroll.on("scroll", ScrollTrigger.update);
         
-        // Tell ScrollTrigger to use these proxy methods for the ".main" element
         ScrollTrigger.scrollerProxy(".main", {
             scrollTop(value) {
                 return arguments.length ? 
