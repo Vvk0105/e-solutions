@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize Locomotive Scroll
         const locoScroll = new LocomotiveScroll({
             el: document.querySelector(".main"),
-            smooth: true,
+            smooth: window.innerWidth > 768,
             multiplier: 0.8, // Reduce scroll speed for better compatibility
             getDirection: true
         });
