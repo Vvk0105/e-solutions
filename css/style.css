@@ -120,7 +120,7 @@ h1, h2, h3, h4 {
 
 #logo img{
     transition: transform 0.3s ease;
-    height: 45px;
+    height: 40px;
 }
 #nav{
     height: 70px;
@@ -450,14 +450,14 @@ p span{
 .page15-right h3{
     font-size: 1.5rem;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
     line-height: 1.4;
     text-transform: uppercase;
     color: #111;
 }
 
 .page15-right p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.6;
     margin-bottom: 0;
@@ -2890,7 +2890,7 @@ p span{
 /* Services Section */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
     gap: 2rem;
 }
 
@@ -2968,8 +2968,9 @@ p span{
 /* Final CTA */
 .final-cta {
     text-align: center;
-    background-color: var(--primary);
-    background-color: #e8195d;
+    /* background-color: var(--primary); */
+    /* background-color: #e8195d; */
+    background: linear-gradient(358deg, #E8195D, transparent);
     line-height: 1.5;
 }
 
