@@ -120,10 +120,10 @@ h1, h2, h3, h4 {
 
 #logo img{
     transition: transform 0.3s ease;
-    height: 35px;
+    height: 45px;
 }
 #nav{
-    height: 60px;
+    height: 70px;
     width: 100%;
     /* background-color: red; */
     display: flex;
