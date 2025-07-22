@@ -126,6 +126,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // Logo animation - MODIFIED FOR ABOUT PAGE
+        const navLogo = document.querySelector('#logo img');
+        const footer = document.getElementById('footer');
+        
+        if (navLogo && footer) {
+            gsap.to(navLogo, {
+                scrollTrigger: {
+                    trigger: footer,
+                    start: "top 85%", // Adjusted for about page layout
+                    end: "top 30%",
+                    scrub: 0.5,
+                    scroller: ".main",
+                    onEnter: () => {
+                        gsap.to(navLogo, {
+                            opacity: 0,
+                            y: -20,
+                            scale: 0.8,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        });
+                    },
+                    onLeaveBack: () => {
+                        gsap.to(navLogo, {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    }
+                }
+            });
+        }
+
         // Category card animations
         gsap.utils.toArray(".category-card").forEach((card, i) => {
             gsap.from(card, {
