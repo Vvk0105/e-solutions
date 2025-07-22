@@ -403,6 +403,7 @@ split = SplitText.create(".arch-solut", {
     autoSplit: true,
     mask: "lines",
 
+
     onSplit: (self) => {
       split = gsap.from(self.lines, {
         duration: 2,
@@ -423,6 +424,44 @@ split = SplitText.create(".arch-solut", {
       return split;
     }
   })
+
+  function animateNavLogo() {
+  const navLogo = document.querySelector('#logo img');
+  const footer = document.getElementById('footer');
+
+  // Set up the animation timeline
+  gsap.to(navLogo, {
+    scrollTrigger: {
+      trigger: footer,
+      start: "top 70%", 
+      end: "top 20%",
+      scrub: true,
+      scroller: ".main",
+    //   markers: true,
+      onEnter: () => {
+        gsap.to(navLogo, {
+          opacity: 0,
+          y: -20,
+          scale: 0.8,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(navLogo, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      }
+    }
+  });
+}
+
+// Call the function after DOM is loaded
+document.addEventListener('DOMContentLoaded', animateNavLogo);
 
     const magnet = document.querySelector('.margneto')
     const text = document.querySelector('.about-text')

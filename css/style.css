@@ -119,9 +119,11 @@ h1, h2, h3, h4 {
 }
 
 #logo img{
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity; 
     height: 40px;
 }
+
 #nav{
     height: 70px;
     width: 100%;
