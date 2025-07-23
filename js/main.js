@@ -190,10 +190,16 @@ gsap.from("#footer", {
     ease: "power3.out"
 });
 const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-document.querySelectorAll('.elem').forEach(elem => {
+
+// For elements that need hover-like behavior on touch devices
+document.querySelectorAll('.elem, .hover-sensitive').forEach(elem => {
   if (isTouchDevice) {
     elem.addEventListener('click', function() {
       this.classList.toggle('active');
+      // Trigger any GSAP animations that would normally happen on hover
+      if (this.dataset.animation) {
+        gsap.to(this, JSON.parse(this.dataset.animation));
+      }
     });
   }
 });
