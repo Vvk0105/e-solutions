@@ -84,37 +84,37 @@ page1slider();
 function init(){
     gsap.registerPlugin(ScrollTrigger);
 
-    const locoScroll = new LocomotiveScroll({
-        el: document.querySelector(".main"),
-        smooth: true
-    });
-    locoScroll.on("scroll", (args) => {
-        // Detect when we've scrolled to bottom
-        const scrollPosition = args.scroll.y;
-        const maxScroll = locoScroll.el.scrollHeight - locoScroll.el.clientHeight;
-        const footer = document.getElementById('footer');
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
+    
+    if (!isMobile) {
+        // Initialize Locomotive Scroll only for desktop
+        const locoScroll = new LocomotiveScroll({
+            el: document.querySelector(".main"),
+            smooth: true,
+            multiplier: 0.8
+        });
         
-        // Show footer when near bottom (last 20% of scroll)
-        if (scrollPosition > maxScroll * 0.8) {
-            footer.classList.add('footer-visible');
-        } else {
-            footer.classList.remove('footer-visible');
-        }
+        locoScroll.on("scroll", ScrollTrigger.update);
         
-        ScrollTrigger.update();
-    });
+        ScrollTrigger.scrollerProxy(".main", {
+            scrollTop(value) {
+                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+            },
+            getBoundingClientRect() {
+                return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+            },
+            pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+        });
 
-    ScrollTrigger.scrollerProxy(".main", {
-        scrollTop(value) {
-            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-        },
-        getBoundingClientRect() {
-            return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-        },
-        pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
-    });
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    } else {
+        // For mobile, use native scrolling but still enable GSAP animations
+        ScrollTrigger.defaults({
+            scroller: window
+        });
+    }
 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
     ScrollTrigger.refresh();
 }
 

@@ -35,6 +35,25 @@ body {
     height: 100%;
 }
 
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    .main {
+        overflow: visible !important;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 768px) {
+    [data-scroll] {
+        will-change: transform, opacity;
+    }
+}
+
 html, body{
     overflow-x: hidden;
     min-height: 100vh;
