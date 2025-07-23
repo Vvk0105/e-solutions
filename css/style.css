@@ -317,7 +317,7 @@ h1, h2, h3, h4 {
 }
 
 .main{
-    overflow: visible !important;
+
     background-color: #0F0D0D;
     position: relative;
     z-index: 10;
