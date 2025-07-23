@@ -508,4 +508,6 @@ document.addEventListener('DOMContentLoaded', animateNavLogo);
     magnet.addEventListener('mouseleave',resetManet)
 
 
-    
+    window.addEventListener("resize", () => {
+    ScrollTrigger.refresh();
+});
