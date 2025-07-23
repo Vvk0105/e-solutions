@@ -2752,6 +2752,11 @@ p span{
     }
 }
 
+.enquiry-form-section h2{
+    color: #000;
+    margin-bottom: 1.5rem;
+}
+
 
 /* offshoring page  */
 
@@ -3270,7 +3275,7 @@ p span{
     }
     
     .contact-methods {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .cta-section {

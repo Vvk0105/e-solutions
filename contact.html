@@ -85,14 +85,6 @@
                     <div class="contact-methods">
                         <div class="contact-card">
                             <div class="contact-icon">
-                                <i class="ri-phone-line"></i>
-                            </div>
-                            <h3>Phone</h3>
-                            <a href="tel:+971585861537">+971 585 861 537</a>
-                        </div>
-
-                        <div class="contact-card">
-                            <div class="contact-icon">
                                 <i class="ri-mail-line"></i>
                             </div>
                             <h3>Email</h3>
@@ -109,14 +101,41 @@
                     </div>
                 </div>
 
+                <!-- New Enquiry Form Section -->
+                <div class="enquiry-form-section">
+                    <h2>Send Us Your Enquiry</h2>
+                    <form id="enquiryForm" class="enquiry-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Contact Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="country" name="country" placeholder="Country" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="Architectural">Architectural Solutions</option>
+                                <option value="Offshoring">Offshoring Solutions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="description" name="description" placeholder="Your enquiry details..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Submit Enquiry</button>
+                    </form>
+                </div>
+
                 <div class="cta-section">
                     <div class="cta-content">
                         <h2>Ready to Work Together?</h2>
                         <p>Whether you're looking for facilities management solutions or resources planning consultancy, our team is ready to help you achieve your goals. Contact us today to discuss your project requirements.</p>
-                        <div class="cta-buttons">
-                            <a href="tel:+971585861537" class="btn-primary">Call Now</a>
-                            <a href="mailto:chris@e2solutions.in" class="btn-secondary">Send Email</a>
-                        </div>
+                        <!-- <div class="cta-buttons">
+                            <a href="#enquiryForm" class="btn-primary">Send Enquiry</a>
+                            <a href="mailto:info@elsoutions.in" class="btn-secondary">Email Us</a>
+                        </div> -->
                     </div>
                     <div class="cta-image">
                         <img src="web3/contact-image.jpg" alt="Professional consultation">

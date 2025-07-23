@@ -192,6 +192,39 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Animation for enquiry form
+        gsap.from(".enquiry-form-section", {
+            scrollTrigger: {
+                trigger: ".enquiry-form-section",
+                scroller: ".main",
+                start: "top 75%",
+                toggleActions: "play none none none"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out"
+        });
+
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                country: document.getElementById('country').value,
+                service: document.getElementById('service').value,
+                description: document.getElementById('description').value
+            };
+            
+    
+            console.log('Form submitted:', formData);
+            
+            alert('Thank you for your enquiry! We will contact you soon.');
+            
+            this.reset();
+        });
+
         // Add hover animations for interactive elements
         const interactiveElements = document.querySelectorAll('.office-card, .contact-card, .btn-primary, .btn-secondary');
         
