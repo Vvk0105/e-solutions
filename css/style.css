@@ -331,6 +331,10 @@ h1, h2, h3, h4 {
     margin-left: 29vw;
 }
 
+span{
+    color: red;
+}
+
 p span{
     color: red;
 }
