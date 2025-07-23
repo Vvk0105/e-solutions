@@ -36,7 +36,7 @@ function page1slider(){
             }
             
             // Change slide every second
-            setInterval(showNextSlide, 2000);
+            setInterval(showNextSlide, 2500);
         });
 }
 
@@ -84,7 +84,13 @@ function init(){
 
     const locoScroll = new LocomotiveScroll({
         el: document.querySelector(".main"),
-        smooth: true
+        smooth: true,
+        smartphone: {
+        smooth: true 
+    },
+    tablet: {
+        smooth: true 
+    }
     });
     locoScroll.on("scroll", (args) => {
         // Detect when we've scrolled to bottom
