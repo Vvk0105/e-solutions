@@ -2766,11 +2766,11 @@ p span{
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url('../web3/offshoring_1.avif');
+    background-image: url('../web3/off.avif');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     background-blend-mode: multiply;
 }
 
