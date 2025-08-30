@@ -65,21 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
             pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
         });
 
-        // Refresh ScrollTrigger when everything is set up
         ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
         ScrollTrigger.refresh();
         
-        // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText);
-        // Hero text animation
-        split = SplitText.create(".solutions-hero h1", {
-            type: "words,lines",
-            linesClass: "line",
-            autoSplit: true,
-            mask: "lines",
-            onSplit: (self) => {
-            split = gsap.from(self.lines, {
+        const heroHeading = document.querySelector(".solutions-hero h1");
+        if (heroHeading) {
+            const splitHeading = new SplitText(heroHeading, {
+                type: "lines",
+                linesClass: "line",
+                wordsClass: "word",
+                mask: "lines"
+            });
+            gsap.set(splitHeading.lines, { visibility: 'visible' });
+            gsap.from(splitHeading.lines, {
                 duration: 2,
                 yPercent: 100,
                 opacity: 0,
@@ -91,21 +91,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     start: "top 65%",
                     end: "bottom 20%",
                     toggleActions: "play none none none",
-                    // markers: true,
                     once: true
                 }
             });
-            return split;
-            }
-        });
+        }
 
-        split = SplitText.create(".solutions-hero p", {
-            type: "words,lines",
-            linesClass: "line",
-            autoSplit: true,
-            mask: "lines",
-            onSplit: (self) => {
-            split = gsap.from(self.lines, {
+        const heroParagraph = document.querySelector(".solutions-hero p");
+        if (heroParagraph) {
+            const splitParagraph = new SplitText(heroParagraph, {
+                type: "lines",
+                linesClass: "line"
+            });
+            gsap.set(splitParagraph.lines, { visibility: 'visible' });
+            gsap.from(splitParagraph.lines, {
                 duration: 2,
                 delay: 0.5,
                 yPercent: 100,
@@ -118,23 +116,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     start: "top 65%",
                     end: "bottom 20%",
                     toggleActions: "play none none none",
-                    // markers: true,
                     once: true
                 }
             });
-            return split;
-            }
-        });
+        }
 
-        // Logo animation - MODIFIED FOR ABOUT PAGE
         const navLogo = document.querySelector('#logo img');
         const footer = document.getElementById('footer');
-        
+
         if (navLogo && footer) {
             gsap.to(navLogo, {
                 scrollTrigger: {
                     trigger: footer,
-                    start: "top 85%", // Adjusted for about page layout
+                    start: "top 85%",
                     end: "top 30%",
                     scrub: 0.5,
                     scroller: ".main",
@@ -159,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
+
 
         // Category card animations
         gsap.utils.toArray(".category-card").forEach((card, i) => {
@@ -213,39 +208,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-    split = SplitText.create(".category-hero-content p", {
-        type: "words,lines",
-        linesClass: "line",
-        autoSplit: true,
-        mask: "lines",
-        onSplit: (self) => {
-        split = gsap.from(self.lines, {
+    // Category hero content animation - FIXED
+    const categoryHeroContent = document.querySelector(".category-hero-content p");
+    if (categoryHeroContent) {
+        const splitCategoryHero = new SplitText(categoryHeroContent, {
+            type: "lines",
+            linesClass: "line",
+            wordsClass: "word",
+            mask: "lines"
+        });
+        gsap.set(splitCategoryHero.lines, { visibility: 'visible' });
+        gsap.from(splitCategoryHero.lines, {
             duration: 2,
             yPercent: 100,
             opacity: 0,
             stagger: 0.2,
-            ease: "expo.out",
-            // scrollTrigger: {
-            //     trigger: ".category-hero",
-            //     scroller: ".main",
-            //     start: "top 65%",
-            //     end: "bottom 20%",
-            //     toggleActions: "play none none none",
-            //     markers: true,
-            //     once: true
-            // }
+            ease: "expo.out"
         });
-        return split;
-        }
-    });
+    }
 
-    split = SplitText.create(".category-intro p", {
-        type: "words,lines",
-        linesClass: "line",
-        autoSplit: true,
-        mask: "lines",
-        onSplit: (self) => {
-        split = gsap.from(self.lines, {
+    // Category intro animation - FIXED
+    const categoryIntro = document.querySelector(".category-intro p");
+    if (categoryIntro) {
+        const splitCategoryIntro = new SplitText(categoryIntro, {
+            type: "lines",
+            linesClass: "line"
+        });
+        gsap.set(splitCategoryIntro.lines, { visibility: 'visible' });
+        gsap.from(splitCategoryIntro.lines, {
             duration: 2,
             yPercent: 100,
             opacity: 0,
@@ -257,13 +247,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: "top 75%",
                 end: "bottom 20%",
                 toggleActions: "play none none none",
-                // markers: true,
                 once: true
             }
         });
-        return split;
-        }
-    });
+    }
 
 var swiper = new Swiper('.swiper', {
     spaceBetween: 10,
@@ -291,36 +278,61 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: "power2.out"
         });
 
-        split = SplitText.create(".product-hero p", {
-                    type: "words,lines",
-                    linesClass: "line",
-                    autoSplit: true,
-                    mask: "lines",
-                    onSplit: (self) => {
-                    split = gsap.from(self.lines, {
-                        duration: 2,
-                        delay: 0.3,
-                        yPercent: 100,
-                        opacity: 0,
-                        stagger: 0.1,
-                        ease: "expo.out",
-                        scrollTrigger: {
-                            trigger: ".solutions-hero",
-                            scroller: ".main",
-                            start: "top 65%",
-                            end: "bottom 20%",
-                            toggleActions: "play none none none",
-                            // markers: true,
-                            once: true
-                        }
-                    });
-                    return split;
-                    }
-                });
+        const productHeroHeading = document.querySelector(".product-hero h1");
+        if (productHeroHeading) {
+            const splitProductHeroHeading = new SplitText(productHeroHeading, {
+                type: "lines",
+                linesClass: "line",
+                wordsClass: "word",
+                mask: "lines"
+            });
+            gsap.set(splitProductHeroHeading.lines, { visibility: 'visible' });
+            gsap.from(splitProductHeroHeading.lines, {
+                duration: 2,
+                delay: 0.1,
+                yPercent: 100,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: ".product-hero",
+                    scroller: ".main",
+                    start: "top 65%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
+        }
 
-              });
+        const productHeroPara = document.querySelector(".product-hero p");
+        if (productHeroPara) {
+            const splitProductHero = new SplitText(productHeroPara, {
+                type: "lines",
+                linesClass: "line",
+                wordsClass: "word",
+                mask: "lines"
+            });
+            gsap.set(splitProductHero.lines, { visibility: 'visible' });
+            gsap.from(splitProductHero.lines, {
+                duration: 2,
+                delay: 0.3,
+                yPercent: 100,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: ".product-hero",
+                    scroller: ".main",
+                    start: "top 65%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
+        }
 
-
+        });
               
     // Refresh ScrollTrigger on resize
     window.addEventListener('resize', function() {

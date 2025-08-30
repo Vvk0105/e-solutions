@@ -63,13 +63,17 @@ html, body{
     }
 }
 
+.solutions-hero-content h1, .solutions-hero-content p, .category-hero-content p, .product-hero p, .product-hero h1 {
+    visibility: hidden;
+}
+
 .page2, .page3, .page4 {
   width: 100%;
   padding: 2rem 5%; 
 }
 
 h1, h2, h3, h4 {
-  font-size: clamp(1.5rem, 5vw, 3rem); /* Scales between 1.5rem and 3rem */
+  font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
 #loader{
