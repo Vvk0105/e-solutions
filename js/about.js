@@ -143,5 +143,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
+
+        const productHeroPara = document.querySelectorAll(".hero-content h1, .hero-content p");
+        if (productHeroPara) {
+            const splitProductHero = new SplitText(productHeroPara, {
+                type: "lines",
+                linesClass: "line",
+                wordsClass: "word",
+                mask: "lines"
+            });
+            gsap.set(splitProductHero.lines, { visibility: 'visible' });
+            gsap.from(splitProductHero.lines, {
+                duration: 2,
+                delay: 0.3,
+                yPercent: 100,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: ".product-hero",
+                    scroller: ".main",
+                    start: "top 65%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
+        }
     }
 });

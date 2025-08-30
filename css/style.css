@@ -63,7 +63,7 @@ html, body{
     }
 }
 
-.solutions-hero-content h1, .solutions-hero-content p, .category-hero-content p, .product-hero p, .product-hero h1 {
+.solutions-hero-content h1, .solutions-hero-content p, .category-hero-content p, .product-hero p, .product-hero h1,.hero-content h1, .hero-content p {
     visibility: hidden;
 }
 
