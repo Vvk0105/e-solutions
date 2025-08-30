@@ -37,12 +37,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Wait for all assets to load
     window.addEventListener('load', function() {
         // Initialize Locomotive Scroll
-        const locoScroll = new LocomotiveScroll({
-            el: document.querySelector(".main"),
-            smooth: window.innerWidth > 768,
-            multiplier: 0.8, // Reduce scroll speed for better compatibility
-            getDirection: true
-        });
+        const isMobile = window.innerWidth <= 1024;
+        let locoScroll = null;
+        if (!isMobile) {
+        locoScroll = new LocomotiveScroll({
+        el: document.querySelector(".main"),
+        smooth: true,
+        smartphone: {
+            smooth: false
+        },
+        tablet: {
+            smooth: false
+        }
+    });
         
         // Update ScrollTrigger when Locomotive Scroll updates
         locoScroll.on("scroll", ScrollTrigger.update);
@@ -66,7 +73,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-        ScrollTrigger.refresh();
+        } else {
+        ScrollTrigger.scrollerProxy(".main", {
+            scrollTop(value) {
+                if (arguments.length) {
+                    document.querySelector(".main").scrollTop = value;
+                }
+                return document.querySelector(".main").scrollTop;
+            },
+            getBoundingClientRect() {
+                return {
+                    top: 0,
+                    left: 0,
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                };
+            }
+        });
+        
+        document.querySelector(".main").style.overflow = "auto";
+        document.querySelector(".main").style.height = "100vh";
+    }
         
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText);

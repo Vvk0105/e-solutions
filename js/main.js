@@ -97,8 +97,6 @@ function init(){
         }
     });
 
-    console.log("Locomotive initialized:", locoScroll); // Debug
-
     locoScroll.on("scroll", ScrollTrigger.update);
 
     ScrollTrigger.scrollerProxy(".main", {
