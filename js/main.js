@@ -82,7 +82,11 @@ page1slider();
 function init(){
     gsap.registerPlugin(ScrollTrigger);
 
-    const locoScroll = new LocomotiveScroll({
+    const isMobile = window.innerWidth <= 1024;
+    let locoScroll = null;
+
+    if (!isMobile) {
+        locoScroll = new LocomotiveScroll({
         el: document.querySelector(".main"),
         smooth: true,
         smartphone: {
@@ -112,8 +116,37 @@ function init(){
         pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
     });
 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    } else {
+        ScrollTrigger.scrollerProxy(".main", {
+            scrollTop(value) {
+                if (arguments.length) {
+                    document.querySelector(".main").scrollTop = value;
+                }
+                return document.querySelector(".main").scrollTop;
+            },
+            getBoundingClientRect() {
+                return {
+                    top: 0,
+                    left: 0,
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                };
+            }
+        });
+        
+        document.querySelector(".main").style.overflow = "auto";
+        document.querySelector(".main").style.height = "100vh";
+    }
+
     ScrollTrigger.refresh();
+    
+    window.addEventListener('resize', function() {
+        ScrollTrigger.refresh();
+        if (locoScroll) {
+            locoScroll.update();
+        }
+    });
 }
 
 init();
