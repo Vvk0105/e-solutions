@@ -1,254 +1,712 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Offshore Solutions | E<span>²</span> Solutions</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
-</head>
-<body>
-    <div class="cursor"></div>
-    <div id="logo">
-        <a href="index.html">
-            <img src="images/e2 main logo.png" alt="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Offshore Solutions | E² Solutions</title>
+    <!-- Bootstrap CSS for layout -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --pink: #e91e63;
+        --dark-blue: #1a1f36;
+        --text-main: #333;
+        --text-light: #777;
+        --bg-light: #f8f9fa;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      /* --- 1. Navbar & Banner --- */
+      .navbar-custom {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 20px 50px;
+        background: #ffffff63;
+      }
+      .navbar-custom .nav-link {
+        color: white !important;
+        font-weight: 500;
+        margin-left: 20px;
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+
+      /* Mobile Menu Toggle Icon Color Fix */
+      .navbar-toggler {
+        border: none;
+      }
+      .navbar-toggler-icon {
+        filter: invert(1);
+      }
+
+      .hero-section {
+        background-image: url("off/banner.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.288);
+        background-blend-mode: multiply;
+        height: 109vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+      .hero-section h1 {
+        font-size: 5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 15px;
+      }
+      .hero-section p {
+        font-size: 1.3rem;
+        font-weight: 300;
+      }
+
+      /* --- Generic Section Styles --- */
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 300;
+        margin-bottom: 10px;
+      }
+      .section-subtitle {
+        color: var(--text-light);
+        font-size: 1rem;
+        margin-bottom: 40px;
+      }
+
+      /* --- 2 & 4. Static Lists (Red lines & Click effects removed) --- */
+      .interactive-item {
+        padding: 25px 0;
+        border-bottom: 1px solid #ddd;
+      }
+      .interactive-item h4 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        position: relative;
+        display: inline-block;
+      }
+      .interactive-item p {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
+      .dynamic-img-wrapper img {
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* --- 3. Our Offshore Solution (Pills & Table) --- */
+      .pill-highlight {
+        border: 2px solid var(--pink);
+        color: var(--pink);
+        border-radius: 50px;
+        padding: 4px 18px;
+        font-weight: 400;
+        display: inline-block;
+        margin: 5px;
+      }
+      .solution-text {
+        font-size: 2.5rem;
+        font-weight: 300;
+        line-height: 1.6;
+        margin-bottom: 50px;
+      }
+
+      .table-box {
+        background: var(--bg-light);
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .table {
+        background: transparent !important;
+      }
+      .table-box th {
+        color: var(--pink);
+        font-size: 0.85rem;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--pink) !important;
+        background: transparent;
+      }
+      .table-box td {
+        padding: 25px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 0.95rem;
+        background: transparent;
+      }
+
+      .btn-pink {
+        background-color: var(--pink);
+        color: white;
+        padding: 12px 40px;
+        border-radius: 50px;
+        font-weight: 500;
+        border: none;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn-pink:hover {
+        background-color: #d81b60;
+        color: white;
+      }
+
+      /* --- 5. Five Reasons --- */
+      .reason-icon {
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
+        margin-right: 20px;
+      }
+      .reason-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 20px;
+      }
+      .reason-item:last-child {
+        border-bottom: none;
+      }
+
+      /* --- 6. Kerala Base --- */
+      .check-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      .check-item {
+        color: var(--text-main);
+        font-size: 1rem;
+      }
+      .check-item::before {
+        content: "✓";
+        color: var(--pink);
+        margin-right: 8px;
+        font-weight: bold;
+      }
+
+      /* --- 7. Final CTA & Footer --- */
+      .cta-section {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url("off/4.png") center/cover;
+        padding: 100px 0;
+        color: white;
+      }
+      .footer {
+        padding: 60px 0 0px;
+        border-top: 1px solid #eee;
+      }
+      .footer-links a {
+        color: var(--text-main);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 12px;
+      }
+      .footer-bottom {
+        background-color: var(--dark-blue);
+        color: white;
+        padding: 15px 0;
+        font-size: 0.85rem;
+        margin-top: 50px;
+      }
+
+      /* =========================================
+         MOBILE & TABLET RESPONSIVE CSS FIXES
+      ========================================= */
+      @media (max-width: 992px) {
+        .dynamic-img-wrapper img {
+          height: 400px; /* Tablet view fix */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar-custom {
+          padding: 15px 20px;
+        }
+        .navbar-collapse {
+          background-color: rgba(26, 31, 54, 0.95);
+          padding: 20px;
+          border-radius: 10px;
+          margin-top: 15px;
+          text-align: center;
+        }
+        .navbar-custom .nav-link {
+          margin-left: 0;
+          margin-bottom: 15px;
+          font-size: 15px;
+        }
+
+        .hero-section h1 {
+          font-size: 2.8rem;
+        }
+        .hero-section p {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+        .solution-text {
+          font-size: 1.6rem;
+        }
+
+        .hero-section {
+          height: 67vh;
+          padding: 0 15px;
+        }
+        .table-box {
+          padding: 20px 15px;
+        }
+        .dynamic-img-wrapper img,
+        #mainGalleryImg {
+          height: 300px !important;
+        }
+        .reason-item {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .reason-icon {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+        .foot-logo img {
+          width: 300px;
+          height: auto;
+        }
+        .dis {
+          align-items: center !important;
+          display: flex;
+          flex-direction: column-reverse;
+          gap: 20px;
+        }
+        .ker {
+          padding-bottom: 0rem !important;
+          padding-top: 0px !important;
+        }
+        .reason-item {
+          margin-bottom: 0px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. Navbar -->
+    <nav class="navbar navbar-expand-md navbar-custom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="images/page2_logo.png"
+            alt="Logo"
+            height="40"
+            style="border-radius: 5px"
+          />
         </a>
-    </div>
-    <div id="nav">
-        <div id="nav-part2">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="architectural-solutions.html" class="nav-link">Architectural</a>
-            <a href="offshoring.html" class="nav-link active">Offshoring</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-        <div id="nav-part3">
-            <div id="circle"></div>
-        </div>
-    </div>
+        <button
+          class="navbar-toggler shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="main">
-        <!-- Hero Section -->
-        <div class="offshore-hero">
-            <div class="hero-content">
-                <h1>OFFSHORE SOLUTIONS</h1>
-                <p>Build smarter. Scale faster. Save more with dedicated offshore teams</p>
-            </div>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="architectural-solutions.html" class="nav-link"
+                >Architectural</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="offshoring.html" class="nav-link active">Offshoring</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
 
-        <!-- Pain Points Section -->
-        <div class="section pain-points">
-            <div class="container">
-                <h2 class="section-title">Challenges of Local Hiring</h2>
-                <div class="points-grid">
-                    <div class="point-card">
-                        <h3>High Operational Costs</h3>
-                        <p>Salaries, office space, and infrastructure expenses can significantly impact your bottom line.</p>
-                    </div>
-                    <div class="point-card">
-                        <h3>Talent Shortages</h3>
-                        <p>Finding skilled professionals locally can be challenging and time-consuming.</p>
-                    </div>
-                    <div class="point-card">
-                        <h3>Staff Turnover</h3>
-                        <p>High employee churn leads to lost productivity and increased training costs.</p>
-                    </div>
-                    <div class="point-card">
-                        <h3>Administrative Burden</h3>
-                        <p>HR, payroll, and compliance management divert focus from core business activities.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Solution Overview -->
-        <div class="section">
-            <div class="container">
-                <h2 class="section-title">Our Offshore Solution</h2>
-                <div class="solution-overview">
-                    <div class="comparison-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Traditional Hiring</th>
-                                    <th>Our Offshore Model</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Cost</td>
-                                    <td>High salaries + overhead</td>
-                                    <td>Up to 50% savings</td>
-                                </tr>
-                                <tr>
-                                    <td>Control</td>
-                                    <td>Full control</td>
-                                    <td>Full control</td>
-                                </tr>
-                                <tr>
-                                    <td>Talent Pool</td>
-                                    <td>Limited locally</td>
-                                    <td>Access to global talent</td>
-                                </tr>
-                                <tr>
-                                    <td>Infrastructure</td>
-                                    <td>Your responsibility</td>
-                                    <td>We handle everything</td>
-                                </tr>
-                                <tr>
-                                    <td>Scalability</td>
-                                    <td>Slow and expensive</td>
-                                    <td>Quick and flexible</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Services Section -->
-        <div class="section" >
-            <div class="container">
-                <h2 class="section-title">Roles We Offshore</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🎨</div>
-                        <h3>Product Designers</h3>
-                        <p>Ideal for manufacturers, our product designers turn ideas into functional, high-quality products.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🛠</div>
-                        <h3>BIM Modeller</h3>
-                        <p>Create detailed 3D building and product models ensuring coordination and efficiency in architectural and construction projects.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📊</div>
-                        <h3>Estimators</h3>
-                        <p>Ideal for construction, engineering, and infrastructure firms needing precise cost calculations.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📐</div>
-                        <h3>Draughtsmen</h3>
-                        <p>Skilled CAD professionals for technical drawing and design work.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🧮</div>
-                        <h3>Accountants</h3>
-                        <p>For day-to-day bookkeeping, reconciliations, and financial reporting.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">➕</div>
-                        <h3>Custom Roles</h3>
-                        <p>We can build teams for virtually any back-office function your business requires.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Why Choose Us -->
-        <div class="section">
-            <div class="container">
-                <h2 class="section-title">Why Choose Our Offshore Solution</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🏢</div>
-                        <div>
-                            <h3>Turnkey Office Solution</h3>
-                            <p>Your team works from our fully equipped office with all infrastructure in place.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">👨‍💼</div>
-                        <div>
-                            <h3>On-site Management</h3>
-                            <p>Dedicated office manager handles day-to-day operations and HR support.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔒</div>
-                        <div>
-                            <h3>Data Security</h3>
-                            <p>Enterprise-grade security protocols to protect your business information.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">💯</div>
-                        <div>
-                            <h3>Quality Talent</h3>
-                            <p>We recruit and retain top professionals with competitive compensation.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location Section -->
-        <div class="location-section" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('web3/kerala-office.avif') center/cover no-repeat;">
-            <div class="container">
-                <div class="location-content">
-                    <h2>Our Strategic Location</h2>
-                    <p>Our offshore center in Kerala, India offers:</p>
-                    <ul>
-                        <li>Highly educated, English-speaking workforce</li>
-                        <li>Strong technical education system</li>
-                        <li>Cultural compatibility with global businesses</li>
-                        <li>Reliable infrastructure and connectivity</li>
-                        <li>Cost-effective operational environment</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Final CTA -->
-        <div class="section final-cta">
-            <div class="container">
-                <h2>Ready to Build Your Offshore Team?</h2>
-                <p>Start saving costs while maintaining full control over your dedicated team.</p>
-                <div class="cta-group">
-                    <a href="contact.html" class="cta-button">Get Started</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div id="footer">
-            <div class="footer-contents">
-                <div class="footer-logo">
-                    <img src="images/page2_logo.png" alt="">
-                </div>
-                <div class="footer-menu">
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ABOUT US</a></li>
-                        <li><a href="#">SERVICES</a></li>
-                        <li><a href="#">CONTACT US</a></li>
-                    </ul>
-                </div>
-                <div class="footer-terms">
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Career</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div id="footer-bottom">
-                <p>© 2025 E<span>²</span> Solutions. All rights reserved.</p>
-            </div>
-        </div>
-    </div>
-    <div class="fixed-logo">
-        <img src="images/logo.png" alt="E<span>²</span> Solutions Logo">
+    <!-- 1. Hero Banner -->
+    <div class="hero-section">
+      <div>
+        <h1>OFFSHORE<br />SOLUTIONS</h1>
+        <p>
+          Build smarter. Scale faster.<br />Save more with dedicated offshore
+          teams
+        </p>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/offshore.js"></script>
-</body>
+    <!-- 2. Local Hiring -->
+    <div class="container py-5 mt-md-5">
+      <div class="text-center mb-5">
+        <h2 class="section-title">
+          Local hiring<br />is quietly working against you
+        </h2>
+        <p class="section-subtitle">
+          Four pressures compound month over month — long before a role is ever
+          filled.
+        </p>
+      </div>
+      <div class="row align-items-center gy-4 dis">
+        <div class="col-lg-6 pe-lg-5">
+          <div class="interactive-list">
+            <div class="interactive-item">
+              <h4>High Operational Costs</h4>
+              <p>
+                Salaries, office space, and infrastructure expenses can
+                significantly impact your bottom line.
+              </p>
+            </div>
+            <div class="interactive-item">
+              <h4>Talent Shortages</h4>
+              <p>
+                Finding skilled professionals locally can be challenging and
+                time-consuming.
+              </p>
+            </div>
+            <div class="interactive-item">
+              <h4>Staff Turnover</h4>
+              <p>
+                High employee churn leads to lost productivity and increased
+                training costs.
+              </p>
+            </div>
+            <div class="interactive-item border-0">
+              <h4>Administrative Burden</h4>
+              <p>
+                HR, payroll, and compliance management divert focus from core
+                business activities.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 dynamic-img-wrapper">
+          <img src="off/11.png" alt="Local Hiring Visualization" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Our Offshore Solution -->
+    <div class="container py-5 text-center mt-md-4">
+      <h2 class="section-title">
+        Our offshore solution,<br />laid out plainly
+      </h2>
+      <p class="section-subtitle">
+        The same work, the same standards, restructured to remove the overhead.
+      </p>
+
+      <div class="solution-text">
+        Save up to <span class="pill-highlight">50%</span> on operational
+        costs<br />
+        <span class="pill-highlight">Zero</span> facility setup costs<br />
+        <span class="pill-highlight">Quick and flexible</span> scalability<br />
+        <span class="pill-highlight">100% Dedicated Team</span>
+      </div>
+
+      <div class="table-box shadow-sm">
+        <h5 class="mb-4 text-start fw-bold" style="font-size: 1.1rem">
+          Traditional Hiring vs. Our Offshore Model
+        </h5>
+        <div class="table-responsive">
+          <table class="table table-borderless text-start mb-0">
+            <thead>
+              <tr>
+                <th width="25%">CATEGORY</th>
+                <th width="40%">TRADITIONAL HIRING</th>
+                <th width="35%">OUR OFFSHORE MODEL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-muted fw-semibold">Cost</td>
+                <td class="fw-bold">High salaries + overhead</td>
+                <td class="text-muted">Up to 50% savings</td>
+              </tr>
+              <tr>
+                <td class="text-muted fw-semibold">Control</td>
+                <td class="fw-bold">Full control</td>
+                <td class="text-muted">Full control</td>
+              </tr>
+              <tr>
+                <td class="text-muted fw-semibold">Talent Pool</td>
+                <td class="fw-bold">Limited locally</td>
+                <td class="text-muted">Access to global talent</td>
+              </tr>
+              <tr>
+                <td class="text-muted fw-semibold">Infrastructure</td>
+                <td class="fw-bold">Your responsibility</td>
+                <td class="text-muted">We handle everything</td>
+              </tr>
+              <tr>
+                <td class="text-muted fw-semibold border-0 pb-0">
+                  Scalability
+                </td>
+                <td class="fw-bold border-0 pb-0">Slow and expensive</td>
+                <td class="text-muted border-0 pb-0">Quick and flexible</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mt-5">
+        <a href="contact.html" class="btn-pink">Get Started</a>
+      </div>
+    </div>
+
+    <!-- 4. Six Disciplines -->
+    <div class="container py-5 mt-md-5">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Six disciplines, one dedicated team</h2>
+        <p class="section-subtitle">
+          From concept to ledger — or we scope a role built around your
+          workflow.
+        </p>
+      </div>
+      <div class="row align-items-center gy-4 dis">
+        <div class="col-lg-6 pe-lg-5">
+          <div class="interactive-list border-0">
+            <div class="interactive-item border-top-0 pt-0">
+              <h4>Custom Roles</h4>
+              <p>
+                We can build teams for virtually any back-office function your
+                business requires.
+              </p>
+            </div>
+            <div class="interactive-item">
+              <h4>Product Designers</h4>
+              <p>
+                Ideal for manufacturers — our product designers turn ideas into
+                functional, high-quality products.
+              </p>
+            </div>
+            <div class="interactive-item">
+              <h4>BIM Modeller</h4>
+              <p>
+                Create detailed 3D building and product models ensuring
+                coordination and efficiency.
+              </p>
+            </div>
+            <div class="interactive-item">
+              <h4>Estimators</h4>
+              <p>
+                Ideal for construction, engineering, and infrastructure firms
+                needing precise cost calculations.
+              </p>
+            </div>
+            <div class="interactive-item">
+              <h4>Draughtsmen</h4>
+              <p>
+                Skilled CAD professionals for technical drawing and design work.
+              </p>
+            </div>
+            <div class="interactive-item border-0">
+              <h4>Accountants</h4>
+              <p>
+                For day-to-day bookkeeping, reconciliations, and financial
+                reporting.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 dynamic-img-wrapper h-100">
+          <img src="off/7.jpeg" alt="Discipline Image" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Five Reasons -->
+    <div class="container py-5 my-md-5">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-5 dynamic-img-wrapper">
+          <img src="off/3.png" alt="Blueprint" class="h-100" />
+        </div>
+        <div class="col-lg-7 ps-lg-5 text-center text-lg-start">
+          <h2 class="section-title mb-5">
+            Five reasons clients keep <br class="d-none d-md-block" />their
+            offshore team for <br class="d-none d-md-block" />years, not months
+          </h2>
+
+          <div class="reason-item">
+            <img src="off/i1.png" class="reason-icon rounded" />
+            <div>
+              <h5 class="fw-bold mb-1">Turnkey Office Solution</h5>
+              <p class="text-muted mb-0">
+                Your team works from our fully equipped office with all
+                infrastructure already in place.
+              </p>
+            </div>
+          </div>
+          <div class="reason-item">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e91e63' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpolyline points='16 11 18 13 22 9'/%3E%3C/svg%3E"
+              class="reason-icon rounded"
+              alt="Dedicated Resource"
+            />
+            <div>
+              <h5 class="fw-bold mb-1">100% Dedicated Resource</h5>
+              <p class="text-muted mb-0">
+                They report only to you and work exclusively for your business,
+                ensuring full trust and control.
+              </p>
+            </div>
+          </div>
+          <div class="reason-item">
+            <img src="off/i2.png" class="reason-icon rounded" />
+            <div>
+              <h5 class="fw-bold mb-1">On-site Management</h5>
+
+              <p class="text-muted mb-0">
+                A dedicated office manager handles day-to-day operations and HR
+                support. Get daily reports as and when you need it.
+              </p>
+            </div>
+          </div>
+          <div class="reason-item">
+            <img src="off/i3.png" class="reason-icon rounded" />
+            <div>
+              <h5 class="fw-bold mb-1">Data Security</h5>
+              <p class="text-muted mb-0">
+                Enterprise-grade security protocols protect your business
+                information end to end.
+              </p>
+            </div>
+          </div>
+          <div class="reason-item border-0">
+            <img src="off/i4.png" class="reason-icon rounded" />
+            <div>
+              <h5 class="fw-bold mb-1">Quality Talent</h5>
+              <p class="text-muted mb-0">
+                We recruit and retain top professionals through competitive,
+                market-leading compensation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Kerala Base -->
+    <div class="container py-5 text-center ker">
+      <h2 class="section-title">A strategic base in Kerala, India</h2>
+      <p class="section-subtitle">
+        An offshore centre built around long-term partnerships, not just
+        staffing.
+      </p>
+
+      <div class="check-list">
+        <span class="check-item"
+          >Highly educated, English-speaking workforce</span
+        >
+        <span class="check-item">Strong technical education system</span>
+        <span class="check-item"
+          >Above-market salaries to attract the region's best talent</span
+        >
+        <span class="check-item"
+          >Cultural compatibility with global businesses</span
+        >
+        <span class="check-item">Reliable infrastructure and connectivity</span>
+        <span class="check-item">Cost-effective operational environment</span>
+      </div>
+
+      <!-- Main Gallery Image Only -->
+      <div style="margin-bottom: 20px">
+        <img
+          id="mainGalleryImg"
+          src="off/11.jpeg"
+          alt="Kerala Office"
+          style="
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+          "
+        />
+      </div>
+    </div>
+
+    <!-- 7. Final CTA -->
+    <div class="cta-section text-center mt-5">
+      <div class="container">
+        <h2 class="section-title text-white mb-3">
+          Ready to Build Your Offshore Team?
+        </h2>
+        <p class="mb-4 text-light">
+          Start saving costs while maintaining full control over your dedicated
+          team.
+        </p>
+        <a href="contact.html" class="btn-pink">Get Started</a>
+      </div>
+    </div>
+
+    <!-- 8. Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0 text-md-start foot-logo">
+            <img src="images/page2_logo.png" alt="E2 Solutions" height="100" />
+          </div>
+          <div class="col-md-3 mb-4 mb-md-0 footer-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="#">SERVICES</a>
+            <a href="contact.html">CONTACT US</a>
+          </div>
+          <div class="col-md-3 footer-links">
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">TERMS & CONDITIONS</a>
+            <a href="#">CAREER</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        © 2026 E² Solutions. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
