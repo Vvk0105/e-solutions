@@ -3256,7 +3256,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 70px; }
     .slide-text { font-size: 12px; }
     img { height: auto; }
     .slide img, .full-width-img img, .category-image img, .subcategory-image img,
-    .product-image img, .project-card img, .swiper-slide img, .intro-image img { height: 100%; }
+    .product-image img, .project-card img, .intro-image img { height: 100%; }
     .page15-left img { height: auto; }
     .footer-contents img { width: min(50vh, 60vw); }
 }
@@ -3285,4 +3285,21 @@ html.lenis, html.lenis body { height: auto; }
 .footer-logo img { max-width: 100%; }
 @media (max-width: 576px) {
     .footer-contents { flex-direction: column; justify-content: center; text-align: center; }
+}
+
+/* Phones: product pages were squeezed into a narrow padded panel */
+@media (max-width: 768px) {
+    .product-types { padding: 0 0 2rem; }
+    .subcategory-section { padding: 2rem 1.25rem; margin-bottom: 0; }
+    .product-description { padding: 1rem 0; }
+    .product-card-simple { margin-bottom: 2.5rem; }
+    .product-image { height: auto; aspect-ratio: 4 / 3; }
+    .product-details h4 { width: auto; display: inline-block; padding: 6px 12px; }
+}
+
+@media (max-width: 768px) {
+    /* Showcase slider runs edge to edge instead of being clipped inside a padded box */
+    .gallery-section { padding: 2.5rem 0; }
+    .gallery-section h2 { padding: 0 1.25rem; }
+    .gallery-section .swiper { width: 100%; }
 }
