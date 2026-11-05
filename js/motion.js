@@ -191,9 +191,25 @@
         else window.addEventListener('load', run);
     };
 
+    /* ---------- Showcase marquee: duplicate the images once so the CSS loop is seamless ---------- */
+    function initShowcase() {
+        document.querySelectorAll('.showcase-track').forEach(function (track) {
+            var items = Array.prototype.slice.call(track.children);
+            if (!items.length) return;
+            items.forEach(function (img) {
+                var c = img.cloneNode(true);
+                c.setAttribute('aria-hidden', 'true');
+                c.alt = '';
+                track.appendChild(c);
+            });
+            track.style.setProperty('--dur', items.length * 9 + 's'); // constant speed whatever the count
+        });
+    }
+
     function boot() {
         initNav();
         initLogoFade();
+        initShowcase();
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
     else boot();

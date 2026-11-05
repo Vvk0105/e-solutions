@@ -3,21 +3,6 @@
     'use strict';
     var M = window.Motion;
 
-    /* Continuous product marquee */
-    function initSwiper() {
-        if (!window.Swiper || !document.querySelector('.swiper')) return;
-        new Swiper('.swiper', {
-            spaceBetween: 10,
-            loop: true,
-            speed: 8500,
-            slidesPerView: 'auto',
-            freeMode: true,
-            autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false },
-            allowTouchMove: true,
-            touchReleaseOnEdges: true
-        });
-    }
-
     M.whenReady(function () {
         // Hero text (visible straight away, so no scroll trigger)
         M.lines('.solutions-hero h1', { trigger: false, duration: 1.4 });
@@ -33,6 +18,4 @@
         M.fadeUp('#footer', { y: 40, start: 'top 98%' });
     });
 
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSwiper);
-    else initSwiper();
 })();

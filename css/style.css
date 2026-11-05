@@ -2164,56 +2164,50 @@ p span{
   }
 }
 
-.swiper {
-    width: auto;
+/* ---------- Project showcase: endless marquee (pure CSS, GPU transform) ---------- */
+.showcase {
+    --gap: 1.25rem;
     overflow: hidden;
-    
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
 
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
+.showcase-track {
     display: flex;
-    justify-content: center;
-    align-items: start;
-    gap: 40px;
-    flex-shrink: 0;
-    
+    width: max-content;
+    animation: showcase-scroll var(--dur, 40s) linear infinite;
+    will-change: transform;
 }
 
-.swiper-slide img {
-    display: block;
-    width: 300px;
-    height: 100%;
+.showcase-track img {
+    flex: none;
+    width: clamp(200px, 24vw, 340px);
+    aspect-ratio: 3 / 4;
+    height: auto;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: var(--gap); /* margin (not flex gap) keeps the loop exactly -50% wide */
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* The script duplicates the images once; sliding by half the track loops seamlessly */
+@keyframes showcase-scroll {
+    to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (hover: hover) {
+    .showcase:hover .showcase-track { animation-play-state: paused; }
 }
 
 @media (max-width: 768px) {
-    .swiper-slide img {
-        width: 100%;
-        height: 100px;
-    }
-
-    .swiper-slide {
-        gap: 20px;
-    }
-
-    .swiper-wrapper {
-        gap: 50px;
-    transition-timing-function: linear !important;
-}
+    .showcase { --gap: 0.9rem; }
+    .showcase-track img { width: 62vw; }
 }
 
-.swiper {
-    margin-left: auto;
-    margin-right: auto;
-    pointer-events: none;
-}
-.swiper-wrapper {
-    transition-timing-function: linear !important;
-    will-change: transform;
+/* Reduced motion: no auto-scroll, let people swipe through instead */
+@media (prefers-reduced-motion: reduce) {
+    .showcase { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+    .showcase-track { animation: none; }
 }
 
 /* about page  */
@@ -3250,7 +3244,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 }
 
 /* Hint the compositor only for things that actually animate */
-.swiper-wrapper, .page1 .slideshow { backface-visibility: hidden; }
+.page1 .slideshow { backface-visibility: hidden; }
 
 @media (max-width: 768px) {
     .slide-text { font-size: 12px; }
@@ -3301,5 +3295,21 @@ html.lenis, html.lenis body { height: auto; }
     /* Showcase slider runs edge to edge instead of being clipped inside a padded box */
     .gallery-section { padding: 2.5rem 0; }
     .gallery-section h2 { padding: 0 1.25rem; }
-    .gallery-section .swiper { width: 100%; }
 }
+
+/* Phones: large desktop paddings made some sections wider than the screen (browser then zooms out) */
+@media (max-width: 768px) {
+    .technical-features, .case-studies, .category-intro { padding: 3rem 1.25rem; }
+    .features-grid, .projects-grid, .subcategory-grid { grid-template-columns: minmax(0, 1fr); }
+    .subcategories-grid { grid-template-columns: minmax(0, 1fr); padding: 0 1.25rem 3rem; }
+    .subcategory-card, .subcategory-content { min-width: 0; overflow-wrap: anywhere; }
+    .solutions-hero h1 { font-size: clamp(1.5rem, 8vw, 2rem); letter-spacing: 0.04em; overflow-wrap: anywhere; }
+    .feature-card { padding: 1.5rem; }
+}
+
+/* Never let a wide child stretch the page (mobile browsers would zoom the whole site out) */
+.main { overflow-x: clip; }
+
+/* Showcase marquee spans the full page width on every screen size */
+.gallery-section { padding-left: 0; padding-right: 0; }
+.gallery-section h2 { padding: 0 1.25rem; }
