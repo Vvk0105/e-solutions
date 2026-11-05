@@ -128,9 +128,10 @@
         o = o || {};
         var els = gsap.utils.toArray(selector);
         if (!els.length || reduceMotion) return;
-        var dist = o.y || 40;
+        var narrow = window.matchMedia('(max-width: 768px)').matches;
+        var dist = narrow ? Math.min(o.y || 40, 24) : (o.y || 40);
         // CSS hover transitions on the same elements would fight GSAP frame-by-frame -> disable while animating
-        gsap.set(els, { opacity: 0, y: dist, transition: 'none' });
+        gsap.set(els, { opacity: 0, y: dist, scale: 0.97, transition: 'none' });
         ScrollTrigger.batch(els, {
             start: o.start || 'top 88%',
             once: true,
@@ -138,8 +139,9 @@
                 gsap.to(batch, {
                     opacity: 1,
                     y: 0,
+                    scale: 1,
                     duration: o.duration || 0.9,
-                    stagger: o.stagger || 0.12,
+                    stagger: narrow ? 0.08 : (o.stagger || 0.12),
                     ease: 'power3.out',
                     overwrite: true,
                     clearProps: 'transform,transition'
@@ -158,6 +160,27 @@
             x: narrow ? 0 : x, y: narrow ? 30 : 0, opacity: 0, duration: 1, ease: 'power3.out', clearProps: 'transform,transition',
             scrollTrigger: { trigger: trigger || els[0], start: 'top 80%', once: true }
         });
+    };
+
+    /** Image reveal: wipes up from the bottom while the picture settles from a slight zoom. */
+    Motion.reveal = function (selector) {
+        var els = gsap.utils.toArray(selector);
+        if (!els.length || reduceMotion) return;
+        els.forEach(function (el) {
+            var img = el.querySelector('img');
+            var st = { trigger: el, start: 'top 85%', once: true };
+            gsap.fromTo(el, { clipPath: 'inset(100% 0% 0% 0%)' },
+                { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'power4.inOut', scrollTrigger: st });
+            if (img) gsap.fromTo(img, { scale: 1.2 }, { scale: 1, duration: 1.8, ease: 'power3.out', scrollTrigger: st });
+        });
+    };
+
+    /** Run fn once the page's images are in (max 1.8s wait) so hero text isn't played while the page is still loading. */
+    Motion.afterLoad = function (fn) {
+        var done = false;
+        function go() { if (!done) { done = true; Motion.whenReady(fn); } }
+        if (document.readyState === 'complete') go();
+        else { window.addEventListener('load', go); setTimeout(go, 1800); }
     };
 
     /** Magnetic hover button – desktop pointers only. */
@@ -186,30 +209,16 @@
 
     /** Run fn once fonts are ready (so SplitText measures real line breaks). */
     Motion.whenReady = function (fn) {
-        var run = function () { if (hasGsap) fn(); };
+        var fired = false;
+        var run = function () { if (fired) return; fired = true; if (hasGsap) fn(); };
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(run);
-        else window.addEventListener('load', run);
+        // Never let a slow/stuck font hold the animations (and the hidden text) hostage
+        setTimeout(run, 2000);
     };
-
-    /* ---------- Showcase marquee: duplicate the images once so the CSS loop is seamless ---------- */
-    function initShowcase() {
-        document.querySelectorAll('.showcase-track').forEach(function (track) {
-            var items = Array.prototype.slice.call(track.children);
-            if (!items.length) return;
-            items.forEach(function (img) {
-                var c = img.cloneNode(true);
-                c.setAttribute('aria-hidden', 'true');
-                c.alt = '';
-                track.appendChild(c);
-            });
-            track.style.setProperty('--dur', items.length * 9 + 's'); // constant speed whatever the count
-        });
-    }
 
     function boot() {
         initNav();
         initLogoFade();
-        initShowcase();
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
     else boot();

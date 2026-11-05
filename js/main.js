@@ -21,9 +21,9 @@
                 try { sessionStorage.setItem('visited', '1'); } catch (e) { /* ignore */ }
             }
         })
-            .from('#loader h3', { x: 40, opacity: 0, duration: 1.1, stagger: 0.1, ease: 'power3.out' })
-            .to('#loader h3', { x: -40, opacity: 0, duration: 0.8, stagger: -0.1, ease: 'power3.in' }, '+=0.2')
-            .to(loader, { opacity: 0, duration: 0.4 });
+            .from('#loader h3', { x: 40, opacity: 0, duration: 0.9, stagger: 0.08, ease: 'power3.out' })
+            .to('#loader h3', { x: -40, opacity: 0, duration: 0.6, stagger: -0.08, ease: 'power3.in' }, '+=0.1')
+            .to(loader, { opacity: 0, duration: 0.35 });
     }
 
     /* ---------- Hero slideshow ---------- */
@@ -73,7 +73,7 @@
         M.lines('.arch-solut', { trigger: '.page3-container', start: 'top 70%' });
         M.lines('.about-content h3, .about-content > p', { trigger: '.about-container', start: 'top 90%' });
         M.fadeUp('.value-item', { start: 'top 92%' });
-        M.fadeUp('#footer', { y: 40, start: 'top 98%' });
+        M.reveal('.full-width-img');
         M.magnet();
     }
 
