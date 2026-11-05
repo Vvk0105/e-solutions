@@ -1,538 +1,85 @@
-document.body.classList.add('loading');
-function lazyloading() {
-    // Load images when in viewport
-    const lazyImages = document.querySelectorAll(".lazyload");
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                observer.unobserve(img);
-            }
-        });
-    });
-    lazyImages.forEach(img => observer.observe(img));
-}
+/* Home page */
+(function () {
+    'use strict';
 
-lazyloading();
+    var M = window.Motion;
+    var loader = document.getElementById('loader');
 
-function page1slider(){
-    document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
-            
+    /* ---------- Intro loader (first visit of the session only) ---------- */
+    function runLoader() {
+        if (!loader) return;
+        var seen = false;
+        try { seen = !!sessionStorage.getItem('visited'); } catch (e) { /* storage blocked */ }
 
-            function showNextSlide() {
-                // Hide current slide
-                slides[currentSlide].classList.remove('active');
-                
-                // Move to next slide (loop back to 0 at end)
-                currentSlide = (currentSlide + 1) % slides.length;
-                
-                // Show new slide
-                slides[currentSlide].classList.add('active');
-                const currentImg = slides[currentSlide].querySelector('img').src;
-                background.style.backgroundImage = `url(${currentImg})`;
-            }
-            
-            // Change slide every second
-            setInterval(showNextSlide, 2500);
-        });
-}
-
-page1slider();
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.createElement('div');
-    menuToggle.className = 'menu-toggle';
-    menuToggle.innerHTML = `
-        <span></span>
-        <span></span>
-        <span></span>
-    `;
-    document.body.appendChild(menuToggle);
-    
-    const navPart2 = document.getElementById('nav-part2');
-    
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navPart2.classList.toggle('active');
-        
-        // Toggle body overflow when menu is open
-        if (navPart2.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
+        if (seen || !M.ready || M.reduceMotion) {
+            loader.style.display = 'none';
+            return;
         }
-    });
-    
-    // Close menu when clicking on a nav link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                menuToggle.classList.remove('active');
-                navPart2.classList.remove('active');
-                document.body.style.overflow = '';
+        gsap.timeline({
+            onComplete: function () {
+                loader.style.display = 'none';
+                try { sessionStorage.setItem('visited', '1'); } catch (e) { /* ignore */ }
             }
-        });
-    });
-});
+        })
+            .from('#loader h3', { x: 40, opacity: 0, duration: 1.1, stagger: 0.1, ease: 'power3.out' })
+            .to('#loader h3', { x: -40, opacity: 0, duration: 0.8, stagger: -0.1, ease: 'power3.in' }, '+=0.2')
+            .to(loader, { opacity: 0, duration: 0.4 });
+    }
 
+    /* ---------- Hero slideshow ---------- */
+    function initSlideshow() {
+        var slides = document.querySelectorAll('.slide');
+        if (slides.length < 2) return;
+        var current = 0;
+        var timer = null;
 
-function init(){
-    gsap.registerPlugin(ScrollTrigger);
-
-    const isMobile = window.innerWidth <= 1024;
-    let locoScroll = null;
-
-    if (!isMobile) {
-        locoScroll = new LocomotiveScroll({
-        el: document.querySelector(".main"),
-        smooth: true,
-        smartphone: {
-            smooth: false
-        },
-        tablet: {
-            smooth: false
+        function next() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
         }
-    });
+        function start() { if (!timer) timer = setInterval(next, 2800); }
+        function stop() { clearInterval(timer); timer = null; }
 
-    locoScroll.on("scroll", ScrollTrigger.update);
+        start();
+        // Don't burn CPU while the tab is hidden or the hero is off-screen
+        document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                entries[0].isIntersecting ? start() : stop();
+            }).observe(document.querySelector('.page1'));
+        }
+    }
 
-    ScrollTrigger.scrollerProxy(".main", {
-        scrollTop(value) {
-            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-        },
-        getBoundingClientRect() {
-            return {
-                top: 0,
-                left: 0,
-                width: window.innerWidth,
-                height: window.innerHeight
-            };
-        },
-        pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
-    });
+    /* ---------- Scroll animations ---------- */
+    function initScroll() {
+        if (!M.ready) return;
 
-   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    } else {
-        ScrollTrigger.scrollerProxy(".main", {
-            scrollTop(value) {
-                if (arguments.length) {
-                    document.querySelector(".main").scrollTop = value;
+        // Hero shrinks slightly as you scroll (clip-path = GPU friendly, no layout work)
+        if (!M.reduceMotion) {
+            gsap.to('.page1 .slideshow', {
+                clipPath: 'inset(0% 15% 0% 15%)',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.page1',
+                    start: '30% 10%',
+                    end: 'bottom 30%',
+                    scrub: 0.6
                 }
-                return document.querySelector(".main").scrollTop;
-            },
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                };
-            }
-        });
-        
-        document.querySelector(".main").style.overflow = "auto";
-        document.querySelector(".main").style.height = "100vh";
-    }
-
-    ScrollTrigger.refresh();
-    
-    window.addEventListener('resize', function() {
-        ScrollTrigger.refresh();
-        if (locoScroll) {
-            locoScroll.update();
+            });
         }
-    });
-}
 
-init();
-
-if (!sessionStorage.getItem('visited')) {
-    var tl4 = gsap.timeline();
-
-    tl4.from("#loader h3", {
-        x: 40,
-        opacity: 0,
-        duration: 1.4,
-        // ease: "power4.out",
-        stagger: 0.1,
-    });
-    tl4.to("#loader h3", {
-        x: -40,
-        opacity: 0,
-        duration: 1,
-        // ease: "power4.out",
-        stagger: -0.1,
-    });
-    tl4.to("#loader", {
-        opacity: 0,
-    });
-    tl4.to("#loader", {
-        display: "none",
-        onComplete: () => {
-            sessionStorage.setItem('visited', true);
-        }
-    });
-} else {
-
-    document.getElementById("loader").style.display = "none";
-}
-
-
-var tl = gsap.timeline({
-    scrollTrigger:{
-        trigger:'.page1',
-        scroller:'.main',
-        // markers:true,
-        start: "30% 10%",
-        end: "bottom 30%",
-        scrub:3
-    }
-})
-tl.to('.page1 .slideshow', {
-    width:"70%"
-},"anim")
-
-var tl2 = gsap.timeline({
-    scrollTrigger:{
-        trigger:'.page2',
-        scroller:'.main',
-        // markers:true,
-        start:"top 140%",
-        end:"top 55%",
-        scrub:3
-    }
-})
-
-// Footer animation
-gsap.from("#footer", {
-    scrollTrigger: {
-        trigger: "#footer",
-        scroller: ".main",
-        start: "top 80%",
-        toggleActions: "play none none none",
-        // markers:true
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-});
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const aboutUs = document.querySelector(".about-us");
-    const clickMe = document.querySelector(".click-me");
-
-    // Split text into spans
-    const splitText = (element) => {
-        const chars = element.textContent.split("");
-        element.innerHTML = "";
-        chars.forEach(char => {
-            const span = document.createElement("span");
-            span.textContent = char === " " ? "\u00A0" : char;
-            element.appendChild(span);
-        });
-    };
-
-    splitText(aboutUs);
-    splitText(clickMe);
-
-    // GSAP scroll animation (for About Us)
-    // gsap.from(".about-us span", {
-    //     yPercent: 130,
-    //     opacity: 0,
-    //     stagger: 0.05,
-    //     duration: 0.5,
-    //     ease: "back.out",
-    //     scrollTrigger: {
-    //         trigger: ".text-div",
-    //         scroller: ".main",
-    //         start: "top 80%",
-    //         toggleActions: "play none none none",
-    //         // markers: true
-    //     }
-    // });
-
-    // Hover animation (with stagger in and out)
-    const textDiv = document.querySelector(".text-div");
-
-    textDiv.addEventListener("mouseenter", () => {
-        gsap.to(".about-us span", {
-            yPercent: -200,
-            opacity: 0,
-            stagger: 0.04,
-            duration: 0.9,
-            ease: "back.in"
-        });
-
-        gsap.to(".click-me span", {
-            yPercent: -100,
-            opacity: 1,
-            stagger: 0.04,
-            duration: 0.9,
-            ease: "back.out"
-        });
-
-        gsap.to(".about-us", { top: "-100%", duration: 0.6, ease: "power2.out" });
-        gsap.to(".click-me", { top: "20%", duration: 0.6, ease: "power2.out" });
-    });
-
-    textDiv.addEventListener("mouseleave", () => {
-        gsap.to(".about-us span", {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.05,
-            duration: 0.6,
-            ease: "ease.out"
-        });
-
-        gsap.to(".click-me span", {
-            yPercent: 0,
-            opacity: 0,
-            stagger: 0.04,
-            duration: 0.6,
-            ease: "back.in"
-        });
-
-        gsap.to(".about-us", { top: "0%", duration: 0.6, ease: "ease.in" });
-        gsap.to(".click-me", { top: "100%", duration: 0.6, ease: "ease.out" });
-    });
-
-    ScrollTrigger.create({
-    trigger: ".text-div",
-    scroller: ".main",
-    start: "top 80%",
-    onEnter: () => {
-        document.querySelector(".text-div").classList.add("animate-line");
-    }
-    });
-
-    ScrollTrigger.refresh();
-});
-
-gsap.registerPlugin(SplitText);
-split = SplitText.create(".offshoring", {
-    type: "words,lines",
-    linesClass: "line",
-    autoSplit: true,
-    mask: "lines",
-    onSplit: (self) => {
-      split = gsap.from(self.lines, {
-        duration: 2,
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "expo.out",
-        scrollTrigger: {
-            trigger: ".page2-container",
-            scroller: ".main",
-            start: "top 65%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-            // markers: true,
-            once: true
-        }
-      });
-      return split;
-    }
-  });
-
-//   document.querySelector("button").addEventListener("click", (e) => {
-//     split.timeScale(0.2).play(0);
-//   });
-
-
-// gsap.from(split.words, {
-//     yPercent: 130,
-//     opacity: 0,
-//     stagger: {
-//         amount: 0.2,
-//     },
-//     duration: 0.5,
-//     ease: "ease.in",
-//     scrollTrigger: {
-//         trigger: ".page2-container",
-//         scroller: ".main",
-//         start: "top 65%",
-//         end: "bottom 20%",
-//         toggleActions: "play none none none",
-//         // markers: true,
-//         once: true
-//     }
-// })
-
-split = SplitText.create(".arch-solut", {
-    type: "words,lines",
-    linesClass: "line",
-    autoSplit: true,
-    mask: "lines",
-    onSplit: (self) => {
-      split = gsap.from(self.lines, {
-        duration: 2,
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "expo.out",
-        scrollTrigger: {
-            trigger: ".page3-container",
-            scroller: ".main",
-            start: "top 65%",
-            // end: "bottom 20%",
-            toggleActions: "play none none none",
-            // markers: true,
-            once: true
-        }
-      });
-      return split;
-    }
-  });
-
-  split = SplitText.create(".about-content h3", {
-    type: "words,lines",
-    linesClass: "line",
-    autoSplit: true,
-    mask: "lines",
-
-    onSplit: (self) => {
-      split = gsap.from(self.lines, {
-        duration: 2,
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "expo.out",
-        scrollTrigger: {
-            trigger: ".about-container",
-            scroller: ".main",
-            start: "top 95%",
-            // end: "bottom 20%",
-            toggleActions: "play none none none",
-            // markers: true,
-            once: true
-        }
-      });
-      return split;
-    }
-  })
-
-  split = SplitText.create(".about-content p", {
-    type: "words,lines",
-    linesClass: "line",
-    autoSplit: true,
-    mask: "lines",
-
-
-    onSplit: (self) => {
-      split = gsap.from(self.lines, {
-        duration: 2,
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "expo.out",
-        scrollTrigger: {
-            trigger: ".about-container",
-            scroller: ".main",
-            start: "top 95%",
-            // end: "bottom 20%",
-            toggleActions: "play none none none",
-            // markers: true,
-            once: true
-        }
-      });
-      return split;
-    }
-  })
-
-  function animateNavLogo() {
-  const navLogo = document.querySelector('#logo img');
-  const footer = document.getElementById('footer');
-
-  // Set up the animation timeline
-  gsap.to(navLogo, {
-    scrollTrigger: {
-      trigger: footer,
-      start: "top 70%", 
-      end: "top 20%",
-      scrub: true,
-      scroller: ".main",
-    //   markers: true,
-      onEnter: () => {
-        gsap.to(navLogo, {
-          opacity: 0,
-          y: -20,
-          scale: 0.8,
-          duration: 0.5,
-          ease: "power2.out"
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(navLogo, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      }
-    }
-  });
-}
-
-// Call the function after DOM is loaded
-document.addEventListener('DOMContentLoaded', animateNavLogo);
-
-    const magnet = document.querySelector('.margneto')
-    const text = document.querySelector('.about-text')
-
-    const activateManet = (event)=>{
-        // get the postion of the magnet on the screen
-        let boundbox = magnet.getBoundingClientRect()
-
-        const magnetoStrength = 40
-        const textStrength = 80
-        const newX = ((event.clientX - boundbox.left)/magnet.offsetWidth - 0.5)
-        const newY = ((event.clientY - boundbox.top)/magnet.offsetHeight - 0.5)
-        
-        gsap.to(magnet, {
-            duration: 1,
-            x : newX * magnetoStrength,
-            y : newY * magnetoStrength,
-            ease: Power4.easeOut,
-        })
-
-        gsap.to(text, {
-            duration: 1,
-            x : newX * textStrength,
-            y : newY * textStrength,
-            ease: Power4.easeOut,
-        })
+        M.lines('.offshoring', { trigger: '.page2-container', start: 'top 70%' });
+        M.lines('.arch-solut', { trigger: '.page3-container', start: 'top 70%' });
+        M.lines('.about-content h3, .about-content > p', { trigger: '.about-container', start: 'top 90%' });
+        M.fadeUp('.value-item', { start: 'top 92%' });
+        M.fadeUp('#footer', { y: 40, start: 'top 98%' });
+        M.magnet();
     }
 
-    // move the btn to the new positon 
-
-    const resetManet = (event)=>{
-        gsap.to(magnet, {
-            duration: 1,
-            x : 0,
-            y : 0,
-            ease: Elastic.easeOut,
-        })
-
-        gsap.to(text, {
-            duration: 1,
-            x : 0,
-            y : 0,
-            ease: Elastic.easeOut,
-        })
-    }
-
-    magnet.addEventListener('mousemove',activateManet)
-    magnet.addEventListener('mouseleave',resetManet)
-
-
-    window.addEventListener("resize", () => {
-    ScrollTrigger.refresh();
-});
+    runLoader();
+    // The intro text/section reveals are deferred until fonts are ready
+    M.whenReady(initScroll);
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSlideshow);
+    else initSlideshow();
+})();

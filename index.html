@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>try{if(sessionStorage.getItem("visited"))document.documentElement.classList.add("visited")}catch(e){}</script>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="Client's website description for SEO">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="E² Solutions - offshoring services and architectural solutions: aluminium, glass, automatic and ironmongery systems.">
     <title>E Square</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
-    <!-- Preload fonts if using custom ones -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" href="fonts/PPMori-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Preload fonts if using custom ones -->
 </head>
 <body>
     <div id="loader">
@@ -20,7 +18,7 @@
     </div>
     <div id="logo">
         <a href="index.html">
-            <img src="images/e2 main logo.png" alt="">
+            <img decoding="async" src="images/e2 main logo.png" alt="E² Solutions">
         </a>
     </div>
     <div id="nav">
@@ -40,37 +38,37 @@
             <div class="slideshow">
             
                 <div class="slide">
-                    <img src="web3/automatic-door.avif" alt="Minimal">
+                    <img decoding="async" src="web3/automatic-door.avif" alt="Minimal">
                     <div class="slide-text">Aluminium Doors</div>
                 </div>
 
                 <div class="slide active">
-                    <img src="web3/offshoring_1.avif" alt="Minimal">
+                    <img decoding="async" src="web3/offshoring_1.avif" alt="Minimal">
                     <div class="slide-text">Offshoring</div>
                 </div>
                 
                 <div class="slide">
-                    <img src="web3/glass-system.avif" alt="Design">
+                    <img decoding="async" src="web3/glass-system.avif" alt="Design">
                     <div class="slide-text">Glass System</div>
                 </div>
                 
                 <div class="slide">
-                    <img src="web3/movable-walls.avif" alt="Minimal">
+                    <img decoding="async" src="web3/movable-walls.avif" alt="Minimal">
                     <div class="slide-text">Movable Walls</div>
                 </div>
                 
                 <div class="slide">
-                    <img src="web3/handle.avif" alt="Minimal">
+                    <img decoding="async" src="web3/handle.avif" alt="Minimal">
                     <div class="slide-text">Handrails</div>
                 </div>
                 
                 <div class="slide">
-                    <img src="web3/facae.avif" alt="Minimal">
+                    <img decoding="async" src="web3/facae.avif" alt="Minimal">
                     <div class="slide-text">Facade</div>
                 </div>
                 
                 <div class="slide">
-                    <img src="web3/Wardrobe system.avif" alt="Minimal">
+                    <img decoding="async" src="web3/Wardrobe system.avif" alt="Minimal">
                     <div class="slide-text">Wardrobe System</div>
                 </div>
             </div>
@@ -78,7 +76,7 @@
         <div class="page15">
             <div class="page15-container">
                 <div class="page15-left">
-                    <img src="images/page2_logo.png" alt="">
+                    <img decoding="async" src="images/page2_logo.png" alt="">
                 </div>
                 <div class="page15-right">
                     <h3>Welcome to E<span>²</span>Solutions — Innovating Space and Service with Global Insight</h3>
@@ -92,7 +90,7 @@
        
         <div class="full-width-section">
             <div class="full-width-img">
-                <img src="web3/offshoring_2.avif" alt="Full Width Image" loading="lazy">
+                <img decoding="async" src="web3/offshoring_2.avif" alt="Full Width Image" loading="lazy">
                 <div class="img-overlay"></div>
             </div>
         </div>
@@ -106,7 +104,7 @@
         
         <div class="full-width-section">
             <div class="full-width-img">
-                <img src="web3/architectural_solutions.avif" alt="Full Width Image" loading="lazy">
+                <img decoding="async" src="web3/architectural_solutions.avif" alt="Full Width Image" loading="lazy">
                 <div class="img-overlay"></div>
             </div>
         </div>
@@ -154,14 +152,14 @@
         <div id="footer">
             <div class="footer-contents">
                 <div class="footer-logo">
-                    <img src="images/page2_logo.png" alt="">
+                    <img decoding="async" src="images/page2_logo.png" alt="">
                 </div>
                 <div class="footer-menu">
                     <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ABOUT US</a></li>
-                        <li><a href="#">SERVICES</a></li>
-                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT US</a></li>
+                        <li><a href="architectural-solutions.html">SERVICES</a></li>
+                        <li><a href="contact.html">CONTACT US</a></li>
                     </ul>
                 </div>
                 <div class="footer-terms">
@@ -178,17 +176,16 @@
         </div>
     </div>
     <div class="fixed-logo">
-        <img src="images/logo.png" alt="E<span>²</span> Solutions Logo">
+        <img decoding="async" src="images/logo.png" alt="E² Solutions Logo">
     </div>
     
     <!-- Content -->
-     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script> -->
-    <script src="js/main.js" defer></script>
+    <!---->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script defer src="js/motion.js"></script>
+    <script defer src="js/main.js"></script>
 </body>
 </html>

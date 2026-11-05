@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Architectural Solutions | E<span>²</span> Solutions</title>
+    <title>Architectural Solutions | E² Solutions</title>
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="preload" href="fonts/PPMori-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 </head>
 <body>
-    <div class="cursor"></div>
-    <div id="logo">
+        <div id="logo">
         <a href="index.html">
-            <img src="images/e2 main logo.png" alt="">
+            <img decoding="async" src="images/e2 main logo.png" alt="E² Solutions">
         </a>
     </div>
     <div id="nav">
@@ -50,7 +49,7 @@
             <!-- Glass Curtain Wall -->
             <a href="curtain-wall.html" class="subcategory-card">
                 <div class="subcategory-image">
-                    <img src="web3/cv/IMG_0333.avif" loading="lazy">
+                    <img decoding="async" src="web3/cv/IMG_0333.avif" loading="lazy">
                 </div>
                 <div class="subcategory-content">
                     <h3>Glass Curtain Wall</h3>
@@ -66,7 +65,7 @@
             <!-- Spider Glazing -->
             <a href="spider-glazing.html" class="subcategory-card">
                 <div class="subcategory-image">
-                    <img src="web3/facade/spider glaxing facade.avif" loading="lazy">
+                    <img decoding="async" src="web3/facade/spider glaxing facade.avif" loading="lazy">
                 </div>
                 <div class="subcategory-content">
                     <h3>Spider Glazing</h3>
@@ -109,16 +108,16 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <!-- <div class="swiper-slide">
-                        <img src="web3/cv/CURTAIN WALL SPACE (1).avif" alt="">
-                        <img src="web3/cv/curtain walls (3).avif" alt="">
-                        <img src="web3/cv/curtain wall VIEWING SPACE.avif" alt="">
-                        <img src="web3/cv/curtain walls (2).avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/CURTAIN WALL SPACE (1).avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/curtain walls (3).avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/curtain wall VIEWING SPACE.avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/curtain walls (2).avif" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="web3/cv/CURTAIN WALL SPACE (1).avif" alt="">
-                        <img src="web3/cv/curtain walls (3).avif" alt="">
-                        <img src="web3/cv/curtain wall VIEWING SPACE.avif" alt="">
-                        <img src="web3/cv/IMG_0333.avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/CURTAIN WALL SPACE (1).avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/curtain walls (3).avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/curtain wall VIEWING SPACE.avif" alt="">
+                        <img loading="lazy" decoding="async" src="web3/cv/IMG_0333.avif" alt="">
                     </div> -->
                 </div>
             </div>
@@ -130,7 +129,7 @@
         <div id="footer">
             <div class="footer-contents">
                 <div class="footer-logo">
-                    <img src="images/page2_logo.png" alt="">
+                    <img decoding="async" src="images/page2_logo.png" alt="">
                 </div>
                 <div class="footer-menu">
                     <ul>
@@ -154,15 +153,16 @@
         </div>
     </div>
     <div class="fixed-logo">
-        <img src="images/logo.png" alt="E<span>²</span> Solutions Logo">
+        <img decoding="async" src="images/logo.png" alt="E² Solutions Logo">
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/arch-solutions.js"></script>
     <!-- Same footer as your main page -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script defer src="js/motion.js"></script>
+    <script defer src="js/arch-solutions.js"></script>
 </body>
 </html>
